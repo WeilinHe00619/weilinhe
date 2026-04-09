@@ -64,11 +64,9 @@
 
                 <!-- Publication Item: Vertical Layout -->
                 <div class="flex flex-col bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-                    <!-- Top Part: Wide Image Strip -->
-                    <div class="w-full h-48 md:h-64 bg-gray-50 border-b border-gray-100 overflow-hidden relative group">
-                        <img src="resources/publications/1 Using Semantic Distance to Estimate Uncertainty in LLM-Based Code Generation.pdf" alt="Publication Banner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://via.placeholder.com/1200x400?text=Paper+Preview'">
-                        <!-- Overlay gradient for depth -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent"></div>
+                    <!-- Top Part: Wide Image Strip (Adjusted for "contained" fit) -->
+                    <div class="w-full h-32 md:h-40 bg-white border-b border-gray-50 overflow-hidden relative p-4">
+                        <img src="resources/publications/1 Using Semantic Distance to Estimate Uncertainty in LLM-Based Code Generation.pdf" alt="Publication Banner" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/1200x200?text=Paper+Banner'">
                     </div>
 
                     <!-- Bottom Part: Text Content -->
