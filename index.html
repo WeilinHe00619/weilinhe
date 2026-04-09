@@ -15,8 +15,8 @@
         <aside class="md:w-1/3 lg:w-1/4">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-12">
                 <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 border-4 border-white shadow-md flex items-center justify-center text-gray-400 overflow-hidden">
-                    <!-- 已根据终端反馈更新为全小写路径 -->
-                    <img src="/Users/te23071/Desktop/weilinhe/resources/photos/weilinhe.jpg" alt="Weilin He" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150?text=Profile'">
+                    <!-- 相对路径 -->
+                    <img src="resources/photos/weilinhe.jpg" alt="Weilin He" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150?text=Profile'">
                 </div>
                 <h1 class="text-2xl font-extrabold text-center text-gray-900 mb-1">Weilin He</h1>
                 <p class="text-center text-sm text-gray-500 mb-6 flex items-center justify-center gap-1">
@@ -132,47 +132,35 @@
                 <!-- News Section -->
                 <section>
                     <h2 class="text-2xl font-bold text-gray-800 mb-4 pb-2 border-b">Recent News</h2>
-                    <div class="space-y-6">
-                        <!-- Upcoming Events -->
-                        <div>
-                            <h3 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-3">Upcoming</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <span class="min-w-[100px] font-mono text-gray-500 pt-0.5">[2026.08.15]</span>
-                                    <span class="text-gray-700 italic">Attending the Anglo-German Summer School at Oxford (Working Group 1: Creativity and Art - Human and Computational - in the Era of AI) from Aug 15-23.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="min-w-[100px] font-mono text-gray-500 pt-0.5">[2026.05.25]</span>
-                                    <span class="text-gray-700 italic">Will attend <a href="https://pliss.org/2026/" target="_blank" class="text-blue-600 hover:underline font-medium">PLISS 2026</a> in Bertinoro.</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- Past Events -->
-                        <div>
-                            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-3">Past</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <span class="min-w-[100px] font-mono text-gray-500 pt-0.5">[2026.03.31]</span>
-                                    <span class="text-gray-700">Completed Research Assistant role for the EPSRC project "Exploring Barriers to AI Doctoral Studies".
-                                        <a href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" class="text-blue-600 hover:underline inline-flex items-center ml-1">Link <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
-                                    </span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="min-w-[100px] font-mono text-gray-500 pt-0.5">[2026.02.25]</span>
-                                    <span class="text-gray-700">Attended <a href="https://plrg-bristol.github.io/SREPLS18/" target="_blank" class="text-blue-600 hover:underline font-medium">S-REPLS 18</a> and participated in the seminar by <a href="https://cs.brown.edu/people/sk/" target="_blank" class="text-blue-600 hover:underline font-medium">Sriram Krishnamurthi</a>.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="min-w-[100px] font-mono text-gray-500 pt-0.5">[2026.02.09]</span>
-                                    <span class="text-gray-700">Visiting Prof. Junjie Chen's group at Tianjin University.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <span class="min-w-[100px] font-mono text-gray-500 pt-0.5">[2025.09.01]</span>
-                                    <span class="text-gray-700">Joined the <a href="https://plrg-bristol.github.io/" target="_blank" class="text-blue-600 hover:underline font-medium">PLRG</a> lab family at Bristol.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <ul class="space-y-5">
+                        <!-- 合并所有新闻，修复重叠问题 -->
+                        <li class="flex items-start">
+                            <span class="w-28 flex-shrink-0 font-mono text-blue-600 font-semibold pt-0.5">[2026.08.15]</span>
+                            <span class="text-gray-700">Attending the Anglo-German Summer School at Oxford (Working Group 1: Creativity and Art - Human and Computational - in the Era of AI) from Aug 15-23.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-28 flex-shrink-0 font-mono text-blue-600 font-semibold pt-0.5">[2026.05.25]</span>
+                            <span class="text-gray-700">Will attend <a href="https://pliss.org/2026/" target="_blank" class="text-blue-600 hover:underline font-medium">PLISS 2026</a> (The Eighth International Programming Language Implementation Summer School) in Bertinoro.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-28 flex-shrink-0 font-mono text-gray-500 pt-0.5">[2026.03.31]</span>
+                            <span class="text-gray-700">Completed Research Assistant role for the EPSRC-funded Social Structure Research Project: Exploring Barriers to AI Doctoral Studies.
+                                <a href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" class="text-blue-600 hover:underline inline-flex items-center ml-1">Link <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-xs"></i></a>
+                            </span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-28 flex-shrink-0 font-mono text-gray-500 pt-0.5">[2026.02.25]</span>
+                            <span class="text-gray-700">Attended <a href="https://plrg-bristol.github.io/SREPLS18/" target="_blank" class="text-blue-600 hover:underline font-medium">S-REPLS 18</a> at Watershed, Bristol, and participated in a seminar by <a href="https://cs.brown.edu/people/sk/" target="_blank" class="text-blue-600 hover:underline font-medium">Sriram Krishnamurthi</a> visiting from Brown.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-28 flex-shrink-0 font-mono text-gray-500 pt-0.5">[2026.02.09]</span>
+                            <span class="text-gray-700">Visiting <a href="https://sites.google.com/site/junjiechen08/" target="_blank" class="text-blue-600 hover:underline font-medium">Prof. Junjie Chen's</a> group at Tianjin University.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-28 flex-shrink-0 font-mono text-gray-500 pt-0.5">[2025.09.01]</span>
+                            <span class="text-gray-700">Joined the <a href="https://plrg-bristol.github.io/" target="_blank" class="text-blue-600 hover:underline font-medium">PLRG</a> lab family!</span>
+                        </li>
+                    </ul>
                 </section>
             </div>
         </main>
