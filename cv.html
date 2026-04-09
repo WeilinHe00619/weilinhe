@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Weilin He</title>
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
     <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-12">
 
-        <!-- Sidebar -->
+        <!-- Sidebar (Synced with index.html) -->
         <aside class="md:w-1/3 lg:w-1/4">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-12">
                 <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 border-4 border-white shadow-md flex items-center justify-center text-gray-400 overflow-hidden">
-                                    </div>
+                    <!-- Relative Path for Profile Image -->
+                    <img src="resources/photos/weilinhe.jpg" alt="Weilin He" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150?text=Profile'">
+                </div>
                 <h1 class="text-2xl font-extrabold text-center text-gray-900 mb-1">Weilin He</h1>
                 <p class="text-center text-sm text-gray-500 mb-6 flex items-center justify-center gap-1">
                     <i class="fa-solid fa-graduation-cap"></i> Ph.D. Student
@@ -35,6 +38,7 @@
                 </div>
             </div>
         </aside>
+
         <!-- Main Content -->
         <main class="md:w-2/3 lg:w-3/4 bg-white p-8 rounded-2xl shadow-sm border border-gray-100 min-h-[80vh]">
 
@@ -55,29 +59,38 @@
             </nav>
 
             <!-- CV Content -->
-            <div class="space-y-8 flex flex-col items-center justify-center py-10 animate-[fadeIn_0.3s_ease-in-out]">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2 w-full border-b pb-2 text-left">Curriculum Vitae</h2>
+            <div class="space-y-10 animate-[fadeIn_0.3s_ease-in-out]">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b">Curriculum Vitae</h2>
 
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 w-full max-w-2xl text-center space-y-6">
-                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto text-blue-600">
-                        <i class="fa-solid fa-file-lines text-4xl"></i>
+                <div class="flex flex-col items-center justify-center py-12 px-4 text-center">
+                    <!-- Icon Decoration -->
+                    <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-6 text-gray-400">
+                        <i class="fa-solid fa-file-circle-xmark text-4xl"></i>
                     </div>
 
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-800">Weilin He</h3>
-                        <p class="text-gray-500 mt-1">Full Curriculum Vitae</p>
-                    </div>
-
-                    <p class="text-sm text-gray-600 px-4">
-                        Contains detailed information about educational background, research experience (Low-orbit satellite, Plankton monitoring equipment, etc.), awards (Provincial Gold/Bronze Awards), and volunteer experience.
+                    <!-- Main Text -->
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">CV Currently Unavailable</h3>
+                    <p class="text-gray-500 max-w-md mx-auto leading-relaxed">
+                        The full version of the Curriculum Vitae is currently being updated and is temporarily unavailable for download. Please check back later.
                     </p>
 
-                    <a href="CV三页.pdf" target="_blank" download class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
-                        <i class="fa-solid fa-download mr-2"></i> Download Full CV (PDF)
-                    </a>
+                    <!-- Contact Hint -->
+                    <div class="mt-8 pt-8 border-t border-gray-100 w-full max-w-sm">
+                        <p class="text-sm text-gray-400">
+                            For urgent academic inquiries, please contact me via email.
+                        </p>
+                    </div>
                 </div>
             </div>
         </main>
     </div>
+
+    <!-- Fade In Animation -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </body>
 </html>
