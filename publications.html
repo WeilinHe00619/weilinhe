@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publications - Weilin He</title>
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
     <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-12">
 
-        <!-- Sidebar -->
+        <!-- Sidebar (Synced with index.html) -->
         <aside class="md:w-1/3 lg:w-1/4">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-12">
                 <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 border-4 border-white shadow-md flex items-center justify-center text-gray-400 overflow-hidden">
-                                    </div>
+                    <!-- 使用与主页一致的相对路径 -->
+                    <img src="resources/photos/weilinhe.jpg" alt="Weilin He" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/150?text=Profile'">
+                </div>
                 <h1 class="text-2xl font-extrabold text-center text-gray-900 mb-1">Weilin He</h1>
                 <p class="text-center text-sm text-gray-500 mb-6 flex items-center justify-center gap-1">
                     <i class="fa-solid fa-graduation-cap"></i> Ph.D. Student
@@ -56,30 +59,38 @@
             </nav>
 
             <!-- Publications Content -->
-            <div class="space-y-8 animate-[fadeIn_0.3s_ease-in-out]">
+            <div class="space-y-8">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b">Publications</h2>
 
-                <div class="flex flex-col md:flex-row gap-6 bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="md:w-1/3 flex-shrink-0">
-                        <div class="w-full h-48 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-500 text-sm text-center p-4">
-                                                    </div>
+                <!-- Publication Item -->
+                <div class="flex flex-col lg:flex-row gap-8 bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="lg:w-1/3 flex-shrink-0">
+                        <div class="w-full aspect-[3/4] bg-gray-50 rounded-lg overflow-hidden border border-gray-200 shadow-inner group">
+                            <!-- 相对路径指向论文预览（如果是图片建议使用.jpg/.png，这里暂时按您的PDF路径设置） -->
+                            <img src="resources/publications/1 Using Semantic Distance to Estimate Uncertainty in LLM-Based Code Generation.pdf" alt="Publication Thumbnail" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/300x400?text=Paper+Preview'">
+                        </div>
                     </div>
-                    <div class="md:w-2/3 flex flex-col justify-between">
+                    <div class="lg:w-2/3 flex flex-col justify-between py-2">
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Using Semantic Distance to Estimate Uncertainty in LLM-Based Code Generation</h3>
-                            <p class="text-gray-700 mb-2">Weilin He, Arindam Sharma, Cristina David</p>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="px-2.5 py-1 bg-green-100 text-green-800 text-xs font-semibold rounded">ICML 2026 Conference Submission</span>
-                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs font-semibold rounded">CCF-A / Under Review</span>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight">Using Semantic Distance to Estimate Uncertainty in LLM-Based Code Generation</h3>
+                            <p class="text-gray-700 mb-3 font-medium">Weilin He, Arindam Sharma, Cristina David</p>
+
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-2.5 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">ICML 2026 Submission</span>
+                                <span class="px-2.5 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full">CCF-A / Under Review</span>
                             </div>
-                            <p class="text-gray-600 text-sm text-justify mb-4">
-                                Large Language Models (LLMs) show strong performance in code generation, but their outputs lack inherent correctness guarantees. We propose a semantic distance-based uncertainty estimation framework that clusters programs by execution behaviour and models inter-cluster distances.
+
+                            <p class="text-gray-600 text-sm leading-relaxed text-justify mb-6">
+                                Large Language Models (LLMs) show strong performance in code generation, but their outputs lack inherent correctness guarantees. We propose a semantic distance-based uncertainty estimation framework that clusters programs by execution behaviour and models inter-cluster distances to provide a reliable confidence score.
                             </p>
                         </div>
-                        <div>
-                            <a href="#" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded hover:bg-blue-700 transition-colors">
-                                <i class="fa-solid fa-download mr-2"></i> PDF Download
-                            </a>
+
+                        <div class="flex items-center gap-4">
+                            <!-- 下载按钮：已按要求改为暂时不提供 -->
+                            <button class="inline-flex items-center px-4 py-2 bg-gray-200 text-gray-500 text-sm font-bold rounded-lg cursor-not-allowed">
+                                <i class="fa-solid fa-lock mr-2"></i> 暂时不提供 (Currently Unavailable)
+                            </button>
+                            <span class="text-xs text-gray-400 italic font-mono">Coming soon...</span>
                         </div>
                     </div>
                 </div>
