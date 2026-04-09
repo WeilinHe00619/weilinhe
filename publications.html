@@ -12,9 +12,6 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fade-in {
-            animation: fadeIn 0.4s ease-out forwards;
-        }
         /* Container for the paper thumbnail */
         .pdf-container {
             position: relative;
@@ -37,7 +34,7 @@
 <body class="bg-gray-50 text-gray-900 font-sans">
     <div class="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row gap-12">
 
-        <!-- Sidebar (Synced with Home) -->
+        <!-- Sidebar (Exactly matched with index.html) -->
         <aside class="md:w-1/3 lg:w-1/4">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 sticky top-12">
                 <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 border-4 border-white shadow-md flex items-center justify-center text-gray-400 overflow-hidden">
@@ -84,8 +81,8 @@
                 </a>
             </nav>
 
-            <!-- Publications Section -->
-            <div class="space-y-8 animate-fade-in">
+            <!-- Publications Section (Matched animation and spacing) -->
+            <div class="space-y-10 animate-[fadeIn_0.3s_ease-in-out]">
                 <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b">Publications</h2>
 
                 <!-- Publication Item -->
