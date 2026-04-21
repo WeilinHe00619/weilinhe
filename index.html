@@ -344,6 +344,34 @@
             color: var(--text-soft);
         }
 
+        /* Awards — compact list */
+        .award-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            column-count: 1;
+            column-gap: 2rem;
+        }
+
+        .award-list li {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.35rem 0;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: var(--text-soft);
+            break-inside: avoid;
+        }
+
+        .award-list .a-year {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--bristol-red);
+            flex-shrink: 0;
+            padding-top: 0.12rem;
+            min-width: 2.5rem;
+        }
+
         /* Footer */
         footer {
             margin-top: 4rem;
@@ -553,76 +581,6 @@
         </section>
 
         <section>
-            <h2>Awards</h2>
-            <div class="entry">
-                <div class="entry-date">2024</div>
-                <div class="entry-body">
-                    <p>Global Transfer Programme bursary for the University of Bristol programme.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2024</div>
-                <div class="entry-body">
-                    <p>University-level Second Prize, the 17th Tianjin Songzheng Challenge Cup.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2023</div>
-                <div class="entry-body">
-                    <p>University-level Second Prize, the 16th Tianjin Songzheng Challenge Cup.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2022</div>
-                <div class="entry-body">
-                    <p>Provincial Gold Award, China College Students' "Internet+" Innovation and Entrepreneurship Competition.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2022</div>
-                <div class="entry-body">
-                    <p>Provincial Bronze Award, China College Students' "Internet+" Innovation and Entrepreneurship Competition.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2022</div>
-                <div class="entry-body">
-                    <p>Certificate of Indonesian International Volunteer and Honorary Lecturer Award.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2021</div>
-                <div class="entry-body">
-                    <p>University-level Award for Outstanding Individual in News Promotion.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2021</div>
-                <div class="entry-body">
-                    <p>University-level Beiyang Qihang Self-reliance Award.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2021</div>
-                <div class="entry-body">
-                    <p>Top 20 in Tianjin, "Jinjing Ledao" Economic Hotspot Analysis Competition.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2020</div>
-                <div class="entry-body">
-                    <p>Top 10 Nationwide, SGS "Quality Wisdom" World Innovation Challenge.</p>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-date">2020</div>
-                <div class="entry-body">
-                    <p>Deputy Leader of a Top 100 National Practical Team for Teaching Support.</p>
-                </div>
-            </div>
-        </section>
-
-        <section>
             <h2>News</h2>
             <div class="entry">
                 <div class="entry-date">2026.08.15</div>
@@ -666,6 +624,23 @@
                     <p>Joined the <a class="inline-link" href="https://plrg-bristol.github.io/" target="_blank" rel="noopener">Programming Languages Research Group (PLRG), University of Bristol</a>.</p>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2>Awards</h2>
+            <ul class="award-list">
+                <li><span class="a-year">2024</span><span>Global Transfer Programme bursary, University of Bristol</span></li>
+                <li><span class="a-year">2024</span><span>Second Prize, 17th Tianjin Songzheng Challenge Cup</span></li>
+                <li><span class="a-year">2023</span><span>Second Prize, 16th Tianjin Songzheng Challenge Cup</span></li>
+                <li><span class="a-year">2022</span><span>Provincial Gold Award, China College Students' "Internet+" Innovation &amp; Entrepreneurship Competition</span></li>
+                <li><span class="a-year">2022</span><span>Provincial Bronze Award, China College Students' "Internet+" Innovation &amp; Entrepreneurship Competition</span></li>
+                <li><span class="a-year">2022</span><span>Indonesian International Volunteer &amp; Honorary Lecturer Award</span></li>
+                <li><span class="a-year">2021</span><span>Outstanding Individual in News Promotion, Tianjin University</span></li>
+                <li><span class="a-year">2021</span><span>Beiyang Qihang Self-reliance Award, Tianjin University</span></li>
+                <li><span class="a-year">2021</span><span>Top 20 in Tianjin, "Jinjing Ledao" Economic Hotspot Analysis Competition</span></li>
+                <li><span class="a-year">2020</span><span>Top 10 Nationwide, SGS "Quality Wisdom" World Innovation Challenge</span></li>
+                <li><span class="a-year">2020</span><span>Deputy Leader, Top 100 National Practical Team for Teaching Support</span></li>
+            </ul>
         </section>
 
         <footer>
