@@ -143,6 +143,16 @@
             height: 17px;
         }
 
+        .header::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--hairline);
+            margin-top: 1.25rem;
+        }
+
+
         /* ===== Nav — minimal underline ===== */
         /* Popup nav is mobile-only */
         .nav-links.popup { display: none; }
@@ -221,32 +231,29 @@
         .section-jump {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
-            margin-top: 1.75rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--hairline);
+            gap: 0.7rem;
+            margin-top: 0.5rem;
             /* Offset for sticky anchor jumps */
             scroll-margin-top: 2rem;
         }
 
         .section-jump a {
             align-self: flex-start;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.82rem;
+            font-weight: 400;
             letter-spacing: -0.01em;
-            padding: 0.35rem 0.9rem;
-            border-radius: 980px;
-            border: 1px solid var(--hairline);
+            padding: 0;
+            border: none;
+            border-radius: 0;
             background: transparent;
-            color: var(--text-secondary);
+            color: var(--text-tertiary);
             text-decoration: none;
-            transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+            transition: color 0.15s ease;
         }
 
         .section-jump a:hover {
             color: var(--text);
-            border-color: var(--text-secondary);
-            background: #f5f5f7;
+            background: transparent;
         }
 
         /* Scroll offset for anchored sections */
@@ -403,6 +410,8 @@
                 text-align: center;
             }
 
+            .header::after { margin-left: auto; margin-right: auto; }
+
             .avatar { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
 
             .contacts { justify-content: center; }
@@ -542,7 +551,6 @@
                 background: #1c1c1e;
                 box-shadow: 0 10px 32px rgba(0,0,0,0.5);
             }
-            .section-jump a:hover { background: #1c1c1e; }
             ::selection { background: #f5f5f7; color: #000; }
         }
     </style>
@@ -595,7 +603,6 @@
         </header>
 
         <div class="section-jump">
-            <a href="#about">About</a>
             <a href="#interests">Research Interests</a>
             <a href="#education">Education</a>
             <a href="#news">News</a>

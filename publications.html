@@ -103,7 +103,7 @@
         .contacts {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 1.25rem;
         }
 
@@ -118,6 +118,16 @@
 
         .contacts a:hover { color: var(--text); }
         .contacts svg { width: 17px; height: 17px; }
+
+        .header::after {
+            content: "";
+            display: block;
+            width: 40px;
+            height: 1px;
+            background: var(--hairline);
+            margin-top: 1.25rem;
+        }
+
 
         /* ===== Nav — minimal underline ===== */
         /* Popup nav is mobile-only */
@@ -344,6 +354,7 @@
                 top: auto;
             }
             .header { margin-bottom: 2.5rem; text-align: center; }
+            .header::after { margin-left: auto; margin-right: auto; }
             .avatar { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
             .contacts { justify-content: center; }
             .name-en { font-size: 1.55rem; }
