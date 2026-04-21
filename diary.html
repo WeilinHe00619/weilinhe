@@ -114,10 +114,10 @@
         .header::after {
             content: "";
             display: block;
-            width: 40px;
+            width: 160px;
             height: 1px;
             background: var(--hairline);
-            margin-top: 1.25rem;
+            margin-top: 1.5rem;
         }
 
 
@@ -209,35 +209,34 @@
         .year-filter {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.7rem;
             margin-top: 0.5rem;
         }
 
         .year-filter button {
             align-self: flex-start;
             font-family: inherit;
-            font-size: 0.8rem;
-            font-weight: 500;
+            font-size: 0.82rem;
+            font-weight: 400;
             letter-spacing: -0.01em;
-            padding: 0.35rem 0.9rem;
-            border-radius: 980px;
-            border: 1px solid var(--hairline);
+            padding: 0;
+            border: none;
+            border-radius: 0;
             background: transparent;
-            color: var(--text-secondary);
+            color: var(--text-tertiary);
             cursor: pointer;
-            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            transition: color 0.15s ease;
             font-variant-numeric: tabular-nums;
         }
 
         .year-filter button:hover {
             color: var(--text);
-            border-color: var(--text-secondary);
         }
 
         .year-filter button.active {
-            background: var(--text);
-            color: var(--bg);
-            border-color: var(--text);
+            color: var(--text);
+            font-weight: 500;
+            background: transparent;
         }
 
         .diary-entry.hidden {
