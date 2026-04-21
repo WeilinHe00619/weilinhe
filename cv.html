@@ -116,33 +116,36 @@
         .nav-links.popup { display: none; }
 
         nav.main-nav {
+            grid-column: 1 / -1;
             display: flex;
-            align-items: flex-start;
-            margin-top: 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 1.25rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--hairline);
             font-size: 0.82rem;
             letter-spacing: -0.01em;
         }
 
         .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            width: 100%;
+            flex-direction: row;
+            gap: 2rem;
         }
 
         .nav-links a {
             color: var(--text-tertiary);
             text-decoration: none;
-            padding: 0;
-            border-bottom: none;
-            transition: color 0.15s ease;
+            padding-bottom: 0.3rem;
+            border-bottom: 1.5px solid transparent;
+            transition: color 0.15s ease, border-color 0.15s ease;
         }
 
         .nav-links a:hover { color: var(--text); }
 
         .nav-links a.active {
             color: var(--text);
-            border-bottom: none;
+            border-bottom-color: var(--text);
             font-weight: 500;
         }
 
@@ -182,7 +185,14 @@
             letter-spacing: -0.015em;
             line-height: 1.25;
             color: var(--text);
-            margin-bottom: 1rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .subtitle {
+            color: var(--text-tertiary);
+            font-size: 0.88rem;
+            margin-bottom: 1.75rem;
+            line-height: 1.65;
         }
 
         /* Empty state */
@@ -380,6 +390,24 @@
 <body>
     <div class="container">
 
+        <nav class="main-nav">
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html">Research Diary</a>
+                <a href="cv.html" class="active">CV</a>
+            </div>
+            <div class="nav-links popup" id="navLinksPopup">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html">Research Diary</a>
+                <a href="cv.html" class="active">CV</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger"><span></span><span></span><span></span></span>
+            </button>
+        </nav>
+
         <aside class="sidebar">
 
         <header class="header">
@@ -406,30 +434,13 @@
             </div>
         </header>
 
-        <nav class="main-nav">
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="publications.html">Publications</a>
-                <a href="diary.html">Research Diary</a>
-                <a href="cv.html" class="active">CV</a>
-            </div>
-            <div class="nav-links popup" id="navLinksPopup">
-                <a href="index.html">Home</a>
-                <a href="publications.html">Publications</a>
-                <a href="diary.html">Research Diary</a>
-                <a href="cv.html" class="active">CV</a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-                <span class="hamburger"><span></span><span></span><span></span></span>
-            </button>
-        </nav>
-
         </aside>
 
         <main class="content">
 
         <section>
             <h2>Curriculum Vitae</h2>
+            <p class="subtitle">Feeling a bit shy — still deciding which version of the CV to share. Give me some time to let things settle...</p>
 
             <div class="empty-state">
                 <div class="empty-icon">

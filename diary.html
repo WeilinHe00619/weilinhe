@@ -59,7 +59,7 @@
             grid-column: 1 / -1;
         }
 
-        .header { margin-bottom: 2rem; text-align: left; }
+        .header { margin-bottom: 0; text-align: left; }
 
         .avatar {
             width: 80px; height: 80px;
@@ -116,33 +116,36 @@
         .nav-links.popup { display: none; }
 
         nav.main-nav {
+            grid-column: 1 / -1;
             display: flex;
-            align-items: flex-start;
-            margin-top: 1.5rem;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 1.25rem;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid var(--hairline);
             font-size: 0.82rem;
             letter-spacing: -0.01em;
         }
 
         .nav-links {
             display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-            width: 100%;
+            flex-direction: row;
+            gap: 2rem;
         }
 
         .nav-links a {
             color: var(--text-tertiary);
             text-decoration: none;
-            padding: 0;
-            border-bottom: none;
-            transition: color 0.15s ease;
+            padding-bottom: 0.3rem;
+            border-bottom: 1.5px solid transparent;
+            transition: color 0.15s ease, border-color 0.15s ease;
         }
 
         .nav-links a:hover { color: var(--text); }
 
         .nav-links a.active {
             color: var(--text);
-            border-bottom: none;
+            border-bottom-color: var(--text);
             font-weight: 500;
         }
 
@@ -195,12 +198,15 @@
         /* Year filter */
         .year-filter {
             display: flex;
+            flex-direction: column;
             gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--hairline);
         }
 
         .year-filter button {
+            align-self: flex-start;
             font-family: inherit;
             font-size: 0.8rem;
             font-weight: 500;
@@ -490,6 +496,15 @@
 
             .diary-list { gap: 2.25rem; }
 
+            .year-filter {
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin-top: 0;
+                padding-top: 0;
+                border-top: none;
+                margin-bottom: 2rem;
+            }
+
             footer { margin-top: 4rem; }
         }
 
@@ -514,6 +529,24 @@
 </head>
 <body>
     <div class="container">
+
+        <nav class="main-nav">
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html" class="active">Research Diary</a>
+                <a href="cv.html">CV</a>
+            </div>
+            <div class="nav-links popup" id="navLinksPopup">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html" class="active">Research Diary</a>
+                <a href="cv.html">CV</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger"><span></span><span></span><span></span></span>
+            </button>
+        </nav>
 
         <aside class="sidebar">
 
@@ -541,23 +574,11 @@
             </div>
         </header>
 
-        <nav class="main-nav">
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Home</a>
-                <a href="publications.html">Publications</a>
-                <a href="diary.html" class="active">Research Diary</a>
-                <a href="cv.html">CV</a>
-            </div>
-            <div class="nav-links popup" id="navLinksPopup">
-                <a href="index.html">Home</a>
-                <a href="publications.html">Publications</a>
-                <a href="diary.html" class="active">Research Diary</a>
-                <a href="cv.html">CV</a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-                <span class="hamburger"><span></span><span></span><span></span></span>
-            </button>
-        </nav>
+        <div class="year-filter" id="yearFilter">
+            <button type="button" data-year="all" class="active">All</button>
+            <button type="button" data-year="2026">2026</button>
+            <button type="button" data-year="2025">2025</button>
+        </div>
 
         </aside>
 
@@ -566,12 +587,6 @@
         <section>
             <h2>Research Diary</h2>
             <p class="subtitle">A possibly wordy and very informal record of thoughts, insights, and scenery along the academic journey.</p>
-
-            <div class="year-filter" id="yearFilter">
-                <button type="button" data-year="all" class="active">All</button>
-                <button type="button" data-year="2026">2026</button>
-                <button type="button" data-year="2025">2025</button>
-            </div>
 
             <div class="diary-list">
 
