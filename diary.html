@@ -36,10 +36,10 @@
         .container {
             max-width: 640px;
             margin: 0 auto;
-            padding: 5rem 1.5rem 6rem;
+            padding: 4rem 1.5rem 5rem;
         }
 
-        .header { margin-bottom: 4.5rem; text-align: center; }
+        .header { margin-bottom: 4rem; text-align: center; }
 
         .avatar {
             width: 80px; height: 80px;
@@ -92,11 +92,14 @@
         .contacts svg { width: 17px; height: 17px; }
 
         /* Nav — minimal underline */
+        /* Popup nav is mobile-only */
+        .nav-links.popup { display: none; }
+
         nav.main-nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 4.5rem;
+            margin-bottom: 3.5rem;
             font-size: 0.82rem;
             letter-spacing: -0.01em;
         }
@@ -150,21 +153,22 @@
         .nav-toggle.open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
         /* Sections */
-        section { margin-bottom: 4.5rem; }
+        section { margin-bottom: 3.5rem; }
         section:last-of-type { margin-bottom: 0; }
 
         h2 {
-            font-size: 1.0625rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
+            line-height: 1.25;
             color: var(--text);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.35rem;
         }
 
         .subtitle {
             color: var(--text-tertiary);
             font-size: 0.88rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.75rem;
         }
 
         /* Year filter */
@@ -172,7 +176,7 @@
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .year-filter button {
@@ -216,7 +220,7 @@
         .diary-list {
             display: flex;
             flex-direction: column;
-            gap: 3.5rem;
+            gap: 2.5rem;
         }
 
         .diary-entry {
@@ -277,44 +281,67 @@
             line-height: 1.6;
         }
 
-        /* Link card — clean, white, hairline border */
+        /* Link card — with hero image on top */
         .link-card {
             display: block;
             margin-top: 1.25rem;
-            padding: 1rem 1.15rem;
             border: 1px solid var(--hairline);
-            border-radius: 12px;
+            border-radius: 14px;
             background: var(--bg);
             text-decoration: none;
             color: var(--text);
-            transition: background 0.15s ease, border-color 0.15s ease;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
         .link-card:hover {
-            background: #f5f5f7;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+            border-color: transparent;
+        }
+
+        .link-card .lc-image {
+            width: 100%;
+            height: 140px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f5f5f7;
+        }
+
+        .link-card .lc-body {
+            padding: 1rem 1.15rem 1.1rem;
         }
 
         .link-card .lc-title {
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: -0.01em;
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
         }
 
         .link-card .lc-desc {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
             line-height: 1.55;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.55rem;
         }
 
         .link-card .lc-url {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .link-card .lc-url svg {
+            width: 12px;
+            height: 12px;
         }
 
         footer {
-            margin-top: 6rem;
+            margin-top: 4.5rem;
             font-size: 0.78rem;
             color: var(--text-tertiary);
         }
@@ -322,7 +349,7 @@
         /* Mobile */
         @media (max-width: 640px) {
             .container { padding: 3rem 1.5rem 4rem; }
-            .header { margin-bottom: 3rem; }
+            .header { margin-bottom: 2.5rem; }
             .avatar { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
             .name-en { font-size: 1.55rem; }
             .name-cn { font-size: 0.98rem; }
@@ -331,11 +358,49 @@
             nav.main-nav {
                 margin-bottom: 3rem;
                 position: relative;
-                justify-content: flex-end;
+                justify-content: space-between;
                 padding: 0;
+                gap: 0.5rem;
             }
 
+            /* Inline links stay visible, just tighter */
             .nav-links {
+                display: flex;
+                flex-direction: row;
+                gap: 1.1rem;
+                flex-wrap: wrap;
+                position: static;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                min-width: 0;
+                box-shadow: none;
+                z-index: auto;
+            }
+
+            .nav-links a {
+                padding: 0 0 0.25rem 0;
+                font-size: 0.78rem;
+                border-bottom: 1.5px solid transparent;
+                color: var(--text-tertiary);
+                background: transparent;
+            }
+
+            .nav-links a:hover {
+                color: var(--text);
+                background: transparent;
+            }
+
+            .nav-links a.active {
+                color: var(--text);
+                border-bottom-color: var(--text);
+                background: transparent;
+                font-weight: 500;
+            }
+
+            /* Hamburger dropdown (opens duplicate popup menu) */
+            .nav-links.popup {
                 display: none;
                 position: absolute;
                 top: calc(100% + 0.5rem);
@@ -351,16 +416,31 @@
                 z-index: 50;
             }
 
-            .nav-links.open { display: flex; }
-            .nav-links a { padding: 0.6rem 1.1rem; font-size: 0.92rem; border-bottom: none; color: var(--text-secondary); }
-            .nav-links a:hover { color: var(--text); background: #f5f5f7; }
-            .nav-links a.active { color: var(--text); background: #f5f5f7; border-bottom: none; }
+            .nav-links.popup.open { display: flex; }
 
-            .nav-toggle { display: flex; align-items: center; justify-content: center; }
+            .nav-links.popup a {
+                padding: 0.6rem 1.1rem;
+                font-size: 0.92rem;
+                border-bottom: none;
+                color: var(--text-secondary);
+            }
 
-            section { margin-bottom: 3rem; }
-            h2 { font-size: 1rem; }
-            .subtitle { margin-bottom: 2rem; }
+            .nav-links.popup a:hover {
+                color: var(--text);
+                background: #f5f5f7;
+            }
+
+            .nav-links.popup a.active {
+                color: var(--text);
+                background: #f5f5f7;
+                border-bottom: none;
+            }
+
+            .nav-toggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+            section { margin-bottom: 2.25rem; }
+            h2 { font-size: 1.1rem; }
+            .subtitle { margin-bottom: 1.5rem; }
 
             .diary-entry {
                 grid-template-columns: 1fr;
@@ -376,7 +456,7 @@
 
             .diary-date { margin-bottom: 0; }
 
-            .diary-list { gap: 3rem; }
+            .diary-list { gap: 2.25rem; }
 
             footer { margin-top: 4rem; }
         }
@@ -393,8 +473,9 @@
             .avatar { background: #1c1c1e; }
             .nav-links { background: #1c1c1e; box-shadow: 0 10px 32px rgba(0,0,0,0.5); }
             .diary-image { background: #1c1c1e; }
-            .link-card { border-color: #424245; }
-            .link-card:hover { background: #1c1c1e; }
+            .link-card { border-color: #424245; background: #1c1c1e; }
+            .link-card:hover { box-shadow: 0 10px 28px rgba(0,0,0,0.5); }
+            .link-card .lc-image { background-color: #2c2c2e; }
             ::selection { background: #f5f5f7; color: #000; }
         }
     </style>
@@ -428,6 +509,12 @@
 
         <nav class="main-nav">
             <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html" class="active">Research Diary</a>
+                <a href="cv.html">CV</a>
+            </div>
+            <div class="nav-links popup" id="navLinksPopup">
                 <a href="index.html">Home</a>
                 <a href="publications.html">Publications</a>
                 <a href="diary.html" class="active">Research Diary</a>
@@ -516,9 +603,15 @@
                             <p>Today officially marks the completion of my Research Assistant role in the EPSRC-funded project: <a class="inline-link" href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener">Exploring Barriers to AI Doctoral Studies</a>. I have experienced the challenges and charm of interdisciplinary research. Collaborating with people from various countries and gaining my first in-depth understanding of the UK's AI PhD education system gave me quite a bit of culture shock. A huge thank you to everyone in our project team for their hard work and dedication!</p>
                         </div>
                         <a href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener" class="link-card">
-                            <div class="lc-title">Exploring Barriers to AI Doctoral Studies</div>
-                            <div class="lc-desc">EPSRC-funded project investigating the ethical and practical barriers in AI PhD education across the UK.</div>
-                            <div class="lc-url">uob-aibarriers-project.github.io</div>
+                            <div class="lc-image" style="background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop');"></div>
+                            <div class="lc-body">
+                                <div class="lc-title">Exploring Barriers to AI Doctoral Studies</div>
+                                <div class="lc-desc">EPSRC-funded project investigating the ethical and practical barriers in AI PhD education across the UK.</div>
+                                <div class="lc-url">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                    uob-aibarriers-project.github.io
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -580,8 +673,7 @@
                         </div>
                         <div class="diary-body">
                             <p>Participating in the <a class="inline-link" href="https://www.bristol.ac.uk/international/global-transfer-programme/partners/tju/#pg" target="_blank" rel="noopener">3+1 AMD Programmes</a> made 2025 a chaotic yet extraordinarily fulfilling year. Thanks to this program, I completed all my undergraduate credits within the first three years, and successfully managed my master's studies alongside writing both my bachelor's and master's dissertations in the fourth year. It was a period of immense academic pressure, but the relentless learning pushed me to my limits and enriched me deeply.</p>
-                            <p>While this year seemed perfect on the surface, it was actually intertwined with confusion, doubts, and anxieties. Nevertheless, amidst the heavy workload, I managed to step out and explore a much bigger world: sitting by a lake near a wooden cabin in Finland, swimming in the jelly-like crystal waters of Hurghada, standing atop snowy mountains in Norway, and walking in the drizzle of Grindelwald, Switzerland... In these breathtaking places, I felt like I was living in a beautiful dream.</p>
-                            <p>I am deeply grateful for my parents' continuous support. Now that everything is steadily falling into place, my heart is full of gratitude. My only regret this year is missing both my undergraduate and master's graduation ceremonies. Here is to making a wish: I hope to successfully earn my PhD and finally attend the graduation ceremony I've been longing for!</p>
+                            <p>I am deeply grateful for my parents' continuous support. Now that everything is steadily falling into place, my heart is full of gratitude. My only regret this year is missing both my undergraduate and master's graduation ceremonies. Here is to making a wish: <strong>I hope to successfully earn my PhD and finally attend the graduation ceremony I've been longing for!</strong></p>
                             <p>I still remember during my PhD interview, someone had written on the blackboard by the door: "Don't do AI! It'S, BAD!!! You will regret I". I wonder how I will answer this statement four years from now.</p>
                         </div>
                     </div>
@@ -597,7 +689,7 @@
     <script>
         (function() {
             var toggle = document.getElementById('navToggle');
-            var links = document.getElementById('navLinks');
+            var links = document.getElementById('navLinksPopup');
             if (!toggle || !links) return;
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();

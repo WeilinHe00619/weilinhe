@@ -36,11 +36,11 @@
         .container {
             max-width: 640px;
             margin: 0 auto;
-            padding: 5rem 1.5rem 6rem;
+            padding: 4rem 1.5rem 5rem;
         }
 
         /* ===== Header ===== */
-        .header { margin-bottom: 4.5rem; text-align: center; }
+        .header { margin-bottom: 4rem; text-align: center; }
 
         .avatar {
             width: 80px;
@@ -100,11 +100,14 @@
         .contacts svg { width: 17px; height: 17px; }
 
         /* ===== Nav — minimal underline ===== */
+        /* Popup nav is mobile-only */
+        .nav-links.popup { display: none; }
+
         nav.main-nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 4.5rem;
+            margin-bottom: 3.5rem;
             font-size: 0.82rem;
             font-weight: 400;
             letter-spacing: -0.01em;
@@ -167,15 +170,16 @@
         .nav-toggle.open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
         /* ===== Sections ===== */
-        section { margin-bottom: 4.5rem; }
+        section { margin-bottom: 3.5rem; }
         section:last-of-type { margin-bottom: 0; }
 
         h2 {
-            font-size: 1.0625rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
+            line-height: 1.25;
             color: var(--text);
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.35rem;
         }
 
         .subtitle {
@@ -298,7 +302,7 @@
 
         /* ===== Footer ===== */
         footer {
-            margin-top: 6rem;
+            margin-top: 4.5rem;
             font-size: 0.78rem;
             color: var(--text-tertiary);
             text-align: left;
@@ -307,7 +311,7 @@
         /* ===== Mobile ===== */
         @media (max-width: 640px) {
             .container { padding: 3rem 1.5rem 4rem; }
-            .header { margin-bottom: 3rem; }
+            .header { margin-bottom: 2.5rem; }
             .avatar { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
             .name-en { font-size: 1.55rem; }
             .name-cn { font-size: 0.98rem; }
@@ -316,11 +320,49 @@
             nav.main-nav {
                 margin-bottom: 3rem;
                 position: relative;
-                justify-content: flex-end;
+                justify-content: space-between;
                 padding: 0;
+                gap: 0.5rem;
             }
 
+            /* Inline links stay visible, just tighter */
             .nav-links {
+                display: flex;
+                flex-direction: row;
+                gap: 1.1rem;
+                flex-wrap: wrap;
+                position: static;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                min-width: 0;
+                box-shadow: none;
+                z-index: auto;
+            }
+
+            .nav-links a {
+                padding: 0 0 0.25rem 0;
+                font-size: 0.78rem;
+                border-bottom: 1.5px solid transparent;
+                color: var(--text-tertiary);
+                background: transparent;
+            }
+
+            .nav-links a:hover {
+                color: var(--text);
+                background: transparent;
+            }
+
+            .nav-links a.active {
+                color: var(--text);
+                border-bottom-color: var(--text);
+                background: transparent;
+                font-weight: 500;
+            }
+
+            /* Hamburger dropdown (opens duplicate popup menu) */
+            .nav-links.popup {
                 display: none;
                 position: absolute;
                 top: calc(100% + 0.5rem);
@@ -336,30 +378,30 @@
                 z-index: 50;
             }
 
-            .nav-links.open { display: flex; }
+            .nav-links.popup.open { display: flex; }
 
-            .nav-links a {
+            .nav-links.popup a {
                 padding: 0.6rem 1.1rem;
                 font-size: 0.92rem;
                 border-bottom: none;
                 color: var(--text-secondary);
             }
 
-            .nav-links a:hover {
+            .nav-links.popup a:hover {
                 color: var(--text);
                 background: #f5f5f7;
             }
 
-            .nav-links a.active {
+            .nav-links.popup a.active {
                 color: var(--text);
                 background: #f5f5f7;
                 border-bottom: none;
             }
 
-            .nav-toggle { display: flex; align-items: center; justify-content: center; }
+            .nav-toggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-            section { margin-bottom: 3rem; }
-            h2 { font-size: 1rem; }
+            section { margin-bottom: 2.25rem; }
+            h2 { font-size: 1.1rem; }
 
             .pub-item { grid-template-columns: 22px 1fr; gap: 0.75rem; }
             .pub-title { font-size: 0.95rem; }
@@ -423,6 +465,12 @@
                 <a href="diary.html">Research Diary</a>
                 <a href="cv.html">CV</a>
             </div>
+            <div class="nav-links popup" id="navLinksPopup">
+                <a href="index.html">Home</a>
+                <a href="publications.html" class="active">Publications</a>
+                <a href="diary.html">Research Diary</a>
+                <a href="cv.html">CV</a>
+            </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span class="hamburger"><span></span><span></span><span></span></span>
             </button>
@@ -467,7 +515,7 @@
     <script>
         (function() {
             var toggle = document.getElementById('navToggle');
-            var links = document.getElementById('navLinks');
+            var links = document.getElementById('navLinksPopup');
             if (!toggle || !links) return;
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();

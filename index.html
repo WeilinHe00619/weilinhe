@@ -41,12 +41,12 @@
         .container {
             max-width: 640px;
             margin: 0 auto;
-            padding: 5rem 1.5rem 6rem;
+            padding: 4rem 1.5rem 5rem;
         }
 
         /* ===== Header ===== */
         .header {
-            margin-bottom: 4.5rem;
+            margin-bottom: 4rem;
             text-align: center;
         }
 
@@ -124,11 +124,14 @@
         }
 
         /* ===== Nav — minimal underline ===== */
+        /* Popup nav is mobile-only */
+        .nav-links.popup { display: none; }
+
         nav.main-nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 4.5rem;
+            margin-bottom: 3.5rem;
             font-size: 0.82rem;
             font-weight: 400;
             letter-spacing: -0.01em;
@@ -191,19 +194,54 @@
         .nav-toggle.open .hamburger span:nth-child(2) { opacity: 0; }
         .nav-toggle.open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
+        /* ===== Section Jump ===== */
+        .section-jump {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            /* Offset for sticky anchor jumps */
+            scroll-margin-top: 2rem;
+        }
+
+        .section-jump a {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            padding: 0.35rem 0.9rem;
+            border-radius: 980px;
+            border: 1px solid var(--hairline);
+            background: transparent;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        }
+
+        .section-jump a:hover {
+            color: var(--text);
+            border-color: var(--text-secondary);
+            background: #f5f5f7;
+        }
+
+        /* Scroll offset for anchored sections */
+        section[id] {
+            scroll-margin-top: 2rem;
+        }
+
         /* ===== Sections ===== */
         section {
-            margin-bottom: 4.5rem;
+            margin-bottom: 3.5rem;
         }
 
         section:last-of-type { margin-bottom: 0; }
 
         h2 {
-            font-size: 1.0625rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            letter-spacing: -0.01em;
+            letter-spacing: -0.015em;
+            line-height: 1.25;
             color: var(--text);
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
         }
 
         p {
@@ -222,37 +260,36 @@
             opacity: 0.7;
         }
 
-        /* ===== Research Interests ===== */
+        /* ===== Research Interests — compact single-line ===== */
         .interests {
             list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         .interests li {
-            padding: 0;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: var(--text-secondary);
         }
 
         .interests .i-title {
-            font-weight: 500;
+            font-weight: 600;
             color: var(--text);
-            font-size: 0.95rem;
-            display: block;
-            margin-bottom: 0.2rem;
         }
 
-        .interests .i-desc {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.6;
+        .interests .i-title::after {
+            content: " — ";
+            color: var(--text-tertiary);
+            font-weight: 400;
         }
 
         /* ===== Entry (Education / News) — minimal, no lines ===== */
         .entry-list {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         .entry {
@@ -283,6 +320,11 @@
             line-height: 1.55;
         }
 
+        .entry-body .e-sep {
+            color: var(--text-tertiary);
+            margin: 0 0.15rem;
+        }
+
         .entry-body .e-meta {
             color: var(--text-tertiary);
             font-size: 0.82rem;
@@ -296,7 +338,7 @@
 
         /* ===== Footer ===== */
         footer {
-            margin-top: 6rem;
+            margin-top: 4.5rem;
             font-size: 0.78rem;
             color: var(--text-tertiary);
             text-align: left;
@@ -306,7 +348,7 @@
         @media (max-width: 640px) {
             .container { padding: 3rem 1.5rem 4rem; }
 
-            .header { margin-bottom: 3rem; }
+            .header { margin-bottom: 2.5rem; }
 
             .avatar { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
 
@@ -317,11 +359,49 @@
             nav.main-nav {
                 margin-bottom: 3rem;
                 position: relative;
-                justify-content: flex-end;
+                justify-content: space-between;
                 padding: 0;
+                gap: 0.5rem;
             }
 
+            /* Inline links stay visible, just tighter */
             .nav-links {
+                display: flex;
+                flex-direction: row;
+                gap: 1.1rem;
+                flex-wrap: wrap;
+                position: static;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                min-width: 0;
+                box-shadow: none;
+                z-index: auto;
+            }
+
+            .nav-links a {
+                padding: 0 0 0.25rem 0;
+                font-size: 0.78rem;
+                border-bottom: 1.5px solid transparent;
+                color: var(--text-tertiary);
+                background: transparent;
+            }
+
+            .nav-links a:hover {
+                color: var(--text);
+                background: transparent;
+            }
+
+            .nav-links a.active {
+                color: var(--text);
+                border-bottom-color: var(--text);
+                background: transparent;
+                font-weight: 500;
+            }
+
+            /* Hamburger dropdown (opens duplicate popup menu) */
+            .nav-links.popup {
                 display: none;
                 position: absolute;
                 top: calc(100% + 0.5rem);
@@ -337,31 +417,31 @@
                 z-index: 50;
             }
 
-            .nav-links.open { display: flex; }
+            .nav-links.popup.open { display: flex; }
 
-            .nav-links a {
+            .nav-links.popup a {
                 padding: 0.6rem 1.1rem;
                 font-size: 0.92rem;
                 border-bottom: none;
                 color: var(--text-secondary);
             }
 
-            .nav-links a:hover {
+            .nav-links.popup a:hover {
                 color: var(--text);
                 background: #f5f5f7;
             }
 
-            .nav-links a.active {
+            .nav-links.popup a.active {
                 color: var(--text);
                 background: #f5f5f7;
                 border-bottom: none;
             }
 
-            .nav-toggle { display: flex; align-items: center; justify-content: center; }
+            .nav-toggle { display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-            section { margin-bottom: 3rem; }
+            section { margin-bottom: 2.25rem; }
 
-            h2 { font-size: 1rem; margin-bottom: 1rem; }
+            h2 { font-size: 1.1rem; }
 
             .interests {
                 grid-template-columns: 1fr;
@@ -397,6 +477,7 @@
                 background: #1c1c1e;
                 box-shadow: 0 10px 32px rgba(0,0,0,0.5);
             }
+            .section-jump a:hover { background: #1c1c1e; }
             ::selection { background: #f5f5f7; color: #000; }
         }
     </style>
@@ -435,12 +516,25 @@
                 <a href="diary.html">Research Diary</a>
                 <a href="cv.html">CV</a>
             </div>
+            <div class="nav-links popup" id="navLinksPopup">
+                <a href="index.html" class="active">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html">Research Diary</a>
+                <a href="cv.html">CV</a>
+            </div>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
                 <span class="hamburger"><span></span><span></span><span></span></span>
             </button>
         </nav>
 
-        <section>
+        <div class="section-jump">
+            <a href="#about">About</a>
+            <a href="#interests">Research Interests</a>
+            <a href="#education">Education</a>
+            <a href="#news">News</a>
+        </div>
+
+        <section id="about">
             <h2>About</h2>
             <p>
                 I am a Ph.D. student in Computer Science at the University of Bristol, supervised by
@@ -451,7 +545,7 @@
             </p>
         </section>
 
-        <section>
+        <section id="interests">
             <h2>Research Interests</h2>
             <ul class="interests">
                 <li>
@@ -473,37 +567,34 @@
             </ul>
         </section>
 
-        <section>
+        <section id="education">
             <h2>Education</h2>
             <div class="entry-list">
                 <div class="entry">
                     <div class="entry-date">2025 — 2029</div>
                     <div class="entry-body">
                         <div class="e-title">University of Bristol</div>
-                        <div class="e-sub">PhD in Computer Science</div>
-                        <div class="e-meta">Faculty of Engineering</div>
+                        <div class="e-sub">PhD in Computer Science <span class="e-sep">·</span> Faculty of Engineering</div>
                     </div>
                 </div>
                 <div class="entry">
                     <div class="entry-date">2024 — 2025</div>
                     <div class="entry-body">
                         <div class="e-title">University of Bristol</div>
-                        <div class="e-sub">MSc in Data Science</div>
-                        <div class="e-meta">Faculty of Engineering</div>
+                        <div class="e-sub">MSc in Data Science <span class="e-sep">·</span> Faculty of Engineering</div>
                     </div>
                 </div>
                 <div class="entry">
                     <div class="entry-date">2021 — 2024</div>
                     <div class="entry-body">
                         <div class="e-title">Tianjin University</div>
-                        <div class="e-sub">BSc in Information System and Information Management</div>
-                        <div class="e-meta">College of Management and Economics</div>
+                        <div class="e-sub">BSc in Information System and Information Management <span class="e-sep">·</span> College of Management and Economics</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section>
+        <section id="news">
             <h2>News</h2>
             <div class="entry-list">
                 <div class="entry">
@@ -560,7 +651,7 @@
     <script>
         (function() {
             var toggle = document.getElementById('navToggle');
-            var links = document.getElementById('navLinks');
+            var links = document.getElementById('navLinksPopup');
             if (!toggle || !links) return;
             toggle.addEventListener('click', function(e) {
                 e.stopPropagation();
