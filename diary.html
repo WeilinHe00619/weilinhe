@@ -6,7 +6,7 @@
     <title>Research Diary &middot; Weilin He</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --bristol-red: #AB2328;
@@ -50,7 +50,7 @@
 
         .header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1.25rem;
             padding-bottom: 1.75rem;
             border-bottom: 1px solid var(--border);
@@ -69,11 +69,29 @@
 
         .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
+        .header-body {
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
         .header-text h1 {
             font-size: 1.5rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 0.15rem;
+        }
+
+        .header-text h1 .cn {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            color: var(--text-soft);
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
         }
 
         .header-text .role {
@@ -86,11 +104,52 @@
             font-weight: 500;
         }
 
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+            padding-top: 0.35rem;
+        }
+
+        .header-contacts a,
+        .header-contacts .loc {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: var(--bg);
+            transition: color 0.15s, border-color 0.15s, background 0.15s, transform 0.15s;
+        }
+
+        .header-contacts a:hover {
+            color: var(--bristol-red);
+            border-color: var(--bristol-red);
+            background: var(--bg-alt);
+            transform: translateY(-1px);
+        }
+
+        .header-contacts svg { width: 14px; height: 14px; stroke-width: 1.8; }
+        .header-contacts .loc { cursor: default; }
+
         nav.main-nav {
             display: flex;
             gap: 1.5rem;
             margin-bottom: 2.5rem;
             font-size: 0.875rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -109,6 +168,44 @@
             border-bottom-color: var(--bristol-red);
             font-weight: 500;
         }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            padding: 0.45rem 0.55rem;
+            border-radius: 4px;
+            transition: background 0.15s, border-color 0.15s;
+        }
+
+        .nav-toggle:hover { background: var(--bg-alt); border-color: var(--bristol-red); }
+
+        .hamburger {
+            width: 20px;
+            height: 14px;
+            position: relative;
+            display: block;
+        }
+
+        .hamburger span {
+            display: block;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1.5px;
+            background: var(--bristol-red);
+            border-radius: 1px;
+            transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s;
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 6px; }
+        .hamburger span:nth-child(3) { top: 12px; }
+
+        .nav-toggle.open .hamburger span:nth-child(1) { top: 6px; transform: rotate(45deg); }
+        .nav-toggle.open .hamburger span:nth-child(2) { opacity: 0; }
+        .nav-toggle.open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
         h2 {
             font-size: 0.8rem;
@@ -266,12 +363,72 @@
             text-align: center;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
             .container { padding: 2rem 1.25rem 3rem; }
             .header { gap: 1rem; padding-bottom: 1.25rem; margin-bottom: 1.5rem; }
             .avatar { width: 60px; height: 60px; }
-            .header-text h1 { font-size: 1.25rem; }
-            nav.main-nav { gap: 1rem; margin-bottom: 1.75rem; }
+
+            .header-body {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .header-text h1 { font-size: 1.2rem; }
+            .header-text h1 .cn { font-size: 0.98rem; margin-left: 0.4rem; }
+
+            .header-contacts {
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 0.45rem;
+                padding-top: 0;
+            }
+
+            .header-contacts a,
+            .header-contacts .loc {
+                width: 32px;
+                height: 32px;
+            }
+
+            nav.main-nav {
+                margin-bottom: 1.5rem;
+                position: relative;
+                justify-content: flex-end;
+            }
+
+            .nav-toggle { display: flex; align-items: center; justify-content: center; }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: calc(100% + 0.5rem);
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: var(--bg);
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                padding: 0.5rem 0;
+                min-width: 180px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+                z-index: 50;
+            }
+
+            .nav-links.open { display: flex; }
+
+            .nav-links a {
+                padding: 0.6rem 1rem;
+                border-bottom: 1px solid var(--border-soft) !important;
+                border-radius: 0;
+            }
+
+            .nav-links a:last-child { border-bottom: none !important; }
+
+            .nav-links a.active {
+                background: var(--bg-alt);
+                border-bottom-color: var(--border-soft) !important;
+            }
+
             .diary-entry {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
@@ -297,17 +454,38 @@
             <div class="avatar">
                 <img src="resources/photos/weilinhe.jpg" alt="Weilin He" onerror="this.style.display='none'">
             </div>
-            <div class="header-text">
-                <h1>Weilin He</h1>
-                <p class="role">Ph.D. Student &middot; <span class="accent">University of Bristol</span></p>
+            <div class="header-body">
+                <div class="header-text">
+                    <h1>Weilin He<span class="cn">何委霖</span></h1>
+                    <p class="role">Ph.D. Student &middot; <span class="accent">University of Bristol</span></p>
+                </div>
+                <div class="header-contacts">
+                    <a href="mailto:te23071@bristol.ac.uk" aria-label="Email" title="te23071@bristol.ac.uk">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                    <a href="https://github.com/WeilinHe00619" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.67 5.56.67 11.83c0 5.02 3.25 9.27 7.75 10.77.57.1.78-.24.78-.55 0-.27-.01-.99-.02-1.94-3.15.68-3.82-1.52-3.82-1.52-.51-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.23 3.31.94.1-.73.4-1.23.72-1.51-2.51-.29-5.16-1.26-5.16-5.58 0-1.23.44-2.24 1.16-3.03-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.16.9-.25 1.87-.38 2.83-.38.96 0 1.93.13 2.83.38 2.16-1.46 3.11-1.16 3.11-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.03 0 4.33-2.66 5.29-5.18 5.57.41.35.77 1.05.77 2.11 0 1.52-.01 2.75-.01 3.13 0 .31.2.66.79.55 4.5-1.5 7.74-5.75 7.74-10.77C23.33 5.56 18.27.5 12 .5z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/weilin-he-570145388" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                    </a>
+                    <span class="loc" aria-label="Location: Bristol, UK" title="Bristol, UK">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </span>
+                </div>
             </div>
         </header>
 
         <nav class="main-nav">
-            <a href="index.html">Home</a>
-            <a href="publications.html">Publications</a>
-            <a href="diary.html" class="active">Research Diary</a>
-            <a href="cv.html">CV</a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="publications.html">Publications</a>
+                <a href="diary.html" class="active">Research Diary</a>
+                <a href="cv.html">CV</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span class="hamburger"><span></span><span></span><span></span></span>
+            </button>
         </nav>
 
         <h2>Research Diary</h2>
@@ -361,10 +539,10 @@
                         The Wise Software Engineering Lab from Tianjin University, led by <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>, visited the University of Bristol, and I had the pleasure of taking part in their visit.
                     </p>
                     <p>
-                        During the visit, I had the privilege of listening to a talk by <a class="inline-link" href="https://yingquanzhao.github.io" target="_blank" rel="noopener">Prof. Yingquan Zhao</a> on his recent work in JVM testing. We had a wonderful discussion exploring the transferability of his methods to my current research direction on code generation, from which I benefited greatly.
+                        During the visit, I had the privilege of listening to a talk by <a class="inline-link" href="https://yingquanzhao.github.io" target="_blank" rel="noopener">Prof. Yingquan Zhao</a>, an Associate Professor at the College of Intelligence and Computing, Tianjin University, on his recent work in JVM testing. We had a wonderful discussion exploring the transferability of his methods to my current research direction on code generation, from which I benefited greatly.
                     </p>
                     <p>
-                        Beyond the academic sessions, we took a trip together to one of Bristol's most iconic landmarks — the <a class="inline-link" href="https://cliftonbridge.org.uk/" target="_blank" rel="noopener">Clifton Suspension Bridge</a>. The weather was absolutely lovely, and walking across Brunel's masterpiece together made for a memorable afternoon. Beyond the research exchanges, we also chatted about everyday life. Everyone was humorous and easy-going, which made the whole experience genuinely enjoyable. Truly a delightful time!
+                        Beyond the academic sessions, we took a trip together to one of Bristol's most iconic landmarks — the <a class="inline-link" href="https://cliftonbridge.org.uk/" target="_blank" rel="noopener">Clifton Suspension Bridge</a>. The weather was absolutely lovely, and walking across Brunel's masterpiece together made for a memorable afternoon. Beyond the research exchanges, we also chatted about everyday life — everyone was humorous and easy-going, which made the whole experience genuinely enjoyable. Truly a delightful time!
                     </p>
                     <p class="photo-caption">
                         <strong>In the photo, from left to right:</strong>
@@ -388,7 +566,7 @@
                 <div class="diary-loc">Bristol, UK</div>
             </div>
             <div>
-                <div class="diary-title">Finished EPSRC-Funded Project Research Assistant</div>
+                <div class="diary-title">Finished EPSRC Project RA</div>
                 <div class="diary-body">
                     <p>
                         Today officially marks the completion of my Research Assistant role in the EPSRC-funded project: <a class="inline-link" href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener">Exploring Barriers to AI Doctoral Studies</a>. I have experienced the challenges and charm of interdisciplinary research. Collaborating with people from various countries and gaining my first in-depth understanding of the UK's AI PhD education system gave me quite a bit of culture shock. A huge thank you to everyone in our project team for their hard work and dedication!
@@ -409,7 +587,7 @@
                 <div class="diary-loc">Tianjin, China</div>
             </div>
             <div>
-                <div class="diary-title">Visiting the Wise Software Engineering Lab at Tianjin University</div>
+                <div class="diary-title">Visiting the Wise Software Engineering Lab from Tianjin University</div>
                 <div class="diary-body">
                     <p>
                         It felt incredibly magical that my first visiting exchange as a PhD student was returning to my alma mater, Tianjin University, to visit <a class="inline-link" href="https://tjusail.github.io" target="_blank" rel="noopener">The Wise Software Engineering Lab</a> from Tianjin University. I even arrived a few hours early that day to study at the Zhengdong Library, a place I frequented during my undergraduate years.
@@ -476,6 +654,9 @@
                         Participating in the <a class="inline-link" href="https://www.bristol.ac.uk/international/global-transfer-programme/partners/tju/#pg" target="_blank" rel="noopener">3+1 AMD Programmes</a> made 2025 a chaotic yet extraordinarily fulfilling year. Thanks to this program, I completed all my undergraduate credits within the first three years, and successfully managed my master's studies alongside writing both my bachelor's and master's dissertations in the fourth year. It was a period of immense academic pressure, but the relentless learning pushed me to my limits and enriched me deeply.
                     </p>
                     <p>
+                        While this year seemed perfect on the surface, it was actually intertwined with confusion, doubts, and anxieties. Nevertheless, amidst the heavy workload, I managed to step out and explore a much bigger world: sitting by a lake near a wooden cabin in Finland, swimming in the jelly-like crystal waters of Hurghada, standing atop snowy mountains in Norway, and walking in the drizzle of Grindelwald, Switzerland... In these breathtaking places, I felt like I was living in a beautiful dream.
+                    </p>
+                    <p>
                         I am deeply grateful for my parents' continuous support. Now that everything is steadily falling into place, my heart is full of gratitude. My only regret this year is missing both my undergraduate and master's graduation ceremonies. <strong>Here is to making a wish: I hope to successfully earn my PhD and finally attend the graduation ceremony I've been longing for! I still remember during my PhD interview, someone had written on the blackboard by the door: <em>"Don't do AI! It'S, BAD!!! You will regret I"</em>. I wonder how I will answer this statement four years from now.</strong>
                     </p>
                 </div>
@@ -487,5 +668,26 @@
         </footer>
 
     </div>
+
+    <script>
+        (function() {
+            var toggle = document.getElementById('navToggle');
+            var links = document.getElementById('navLinks');
+            if (!toggle || !links) return;
+            toggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                var isOpen = links.classList.toggle('open');
+                toggle.classList.toggle('open', isOpen);
+                toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+            document.addEventListener('click', function(e) {
+                if (!links.contains(e.target) && !toggle.contains(e.target)) {
+                    links.classList.remove('open');
+                    toggle.classList.remove('open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
