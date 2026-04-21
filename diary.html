@@ -3,199 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Diary &middot; Weilin He</title>
+    <title>Research Diary · Weilin He</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bristol-red: #AB2328;
-            --bristol-red-soft: #c04147;
-            --bg: #FBF8F3;
-            --bg-alt: #F5F1E8;
-            --text: #2a2a2a;
-            --text-soft: #555;
-            --text-muted: #888;
-            --border: #e6dfd0;
-            --border-soft: #efeadf;
+            --accent: #AB2328;
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+            --hairline: #d2d2d7;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
             background: var(--bg);
             color: var(--text);
-            line-height: 1.65;
             font-size: 15px;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: "tnum" on, "lnum" on;
         }
 
-        .accent-bar {
-            height: 4px;
-            background: var(--bristol-red);
-            width: 100%;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+        ::selection { background: var(--text); color: #fff; }
 
         .container {
-            max-width: 720px;
+            max-width: 640px;
             margin: 0 auto;
-            padding: 3rem 1.5rem 5rem;
+            padding: 5rem 1.5rem 6rem;
         }
 
-        .header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.25rem;
-            padding-bottom: 1.75rem;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 2rem;
-        }
+        .header { margin-bottom: 4.5rem; text-align: center; }
 
         .avatar {
-            width: 72px;
-            height: 72px;
+            width: 80px; height: 80px;
             border-radius: 50%;
             overflow: hidden;
-            background: var(--bg-alt);
-            flex-shrink: 0;
-            border: 1px solid var(--border);
+            background: #f5f5f7;
+            margin: 0 auto 1.5rem;
         }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-        .header-body {
-            flex: 1;
-            min-width: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-
-        .header-text h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.15rem;
-        }
-
-        .header-text h1 .cn {
-            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+        .name-en {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+            font-size: 1.75rem;
             font-weight: 600;
-            margin-left: 0.5rem;
-            color: var(--text-soft);
-            font-size: 1.15rem;
-            letter-spacing: 0.02em;
+            letter-spacing: -0.022em;
+            line-height: 1.15;
+            color: var(--text);
+            margin-bottom: 0.1rem;
         }
 
-        .header-text .role {
-            color: var(--text-soft);
-            font-size: 0.9rem;
+        .name-cn {
+            font-family: "Noto Sans SC", -apple-system, sans-serif;
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--text-tertiary);
+            letter-spacing: 0.04em;
+            margin-bottom: 0.75rem;
         }
 
-        .header-text .role .accent {
-            color: var(--bristol-red);
-            font-weight: 500;
+        .role {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
         }
 
-        .header-contacts {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-shrink: 0;
-            padding-top: 0.35rem;
-        }
+        .role .role-accent { color: var(--text); }
 
-        .header-contacts a,
-        .header-contacts .loc {
+        .contacts { display: flex; align-items: center; justify-content: center; gap: 1.25rem; }
+
+        .contacts a, .contacts .loc {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 30px;
-            height: 30px;
-            color: var(--text-muted);
+            color: var(--text-tertiary);
             text-decoration: none;
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            background: var(--bg);
-            transition: color 0.15s, border-color 0.15s, background 0.15s, transform 0.15s;
+            transition: color 0.15s ease;
         }
 
-        .header-contacts a:hover {
-            color: var(--bristol-red);
-            border-color: var(--bristol-red);
-            background: var(--bg-alt);
-            transform: translateY(-1px);
-        }
+        .contacts a:hover { color: var(--text); }
+        .contacts svg { width: 17px; height: 17px; }
 
-        .header-contacts svg { width: 14px; height: 14px; stroke-width: 1.8; }
-        .header-contacts .loc { cursor: default; }
-
+        /* Nav — minimal underline */
         nav.main-nav {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            font-size: 0.875rem;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            margin-bottom: 4.5rem;
+            font-size: 0.82rem;
+            letter-spacing: -0.01em;
         }
 
         .nav-links {
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            gap: 2rem;
         }
 
-        nav.main-nav a {
-            color: var(--text-soft);
+        .nav-links a {
+            color: var(--text-tertiary);
             text-decoration: none;
-            padding-bottom: 0.25rem;
+            padding-bottom: 0.3rem;
             border-bottom: 1.5px solid transparent;
-            transition: color 0.15s, border-color 0.15s;
+            transition: color 0.15s ease, border-color 0.15s ease;
         }
 
-        nav.main-nav a:hover { color: var(--bristol-red); }
+        .nav-links a:hover { color: var(--text); }
 
-        nav.main-nav a.active {
-            color: var(--bristol-red);
-            border-bottom-color: var(--bristol-red);
+        .nav-links a.active {
+            color: var(--text);
+            border-bottom-color: var(--text);
             font-weight: 500;
         }
 
         .nav-toggle {
             display: none;
             background: none;
-            border: 1px solid var(--border);
+            border: none;
             cursor: pointer;
-            padding: 0.45rem 0.55rem;
-            border-radius: 4px;
-            transition: background 0.15s, border-color 0.15s;
+            padding: 0.5rem;
+            margin: -0.5rem;
+            color: var(--text);
         }
 
-        .nav-toggle:hover { background: var(--bg-alt); border-color: var(--bristol-red); }
-
-        .hamburger {
-            width: 20px;
-            height: 14px;
-            position: relative;
-            display: block;
-        }
+        .hamburger { width: 20px; height: 14px; position: relative; display: block; }
 
         .hamburger span {
-            display: block;
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 1.5px;
-            background: var(--bristol-red);
-            border-radius: 1px;
+            display: block; position: absolute; left: 0;
+            width: 100%; height: 1px;
+            background: var(--text);
             transition: transform 0.25s ease, top 0.25s ease, opacity 0.2s;
         }
 
@@ -207,201 +149,191 @@
         .nav-toggle.open .hamburger span:nth-child(2) { opacity: 0; }
         .nav-toggle.open .hamburger span:nth-child(3) { top: 6px; transform: rotate(-45deg); }
 
+        /* Sections */
+        section { margin-bottom: 4.5rem; }
+        section:last-of-type { margin-bottom: 0; }
+
         h2 {
-            font-size: 0.8rem;
+            font-size: 1.0625rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--bristol-red);
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.4rem;
-            border-bottom: 1px solid var(--border);
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-bottom: 0.4rem;
         }
 
         .subtitle {
-            color: var(--text-muted);
-            font-size: 0.82rem;
-            font-style: italic;
-            margin-bottom: 2rem;
+            color: var(--text-tertiary);
+            font-size: 0.88rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Year filter */
+        .year-filter {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .year-filter button {
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            padding: 0.35rem 0.9rem;
+            border-radius: 980px;
+            border: 1px solid var(--hairline);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .year-filter button:hover {
+            color: var(--text);
+            border-color: var(--text-secondary);
+        }
+
+        .year-filter button.active {
+            background: var(--text);
+            color: var(--bg);
+            border-color: var(--text);
+        }
+
+        .diary-entry.hidden {
+            display: none;
         }
 
         a.inline-link {
-            color: var(--bristol-red);
+            color: var(--accent);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.15s;
+            transition: opacity 0.15s ease;
+        }
+        a.inline-link:hover { opacity: 0.7; }
+
+        /* Diary entries — minimal, no borders */
+        .diary-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
         }
 
-        a.inline-link:hover {
-            border-bottom-color: var(--bristol-red-soft);
-        }
-
-        /* Diary entries */
         .diary-entry {
             display: grid;
             grid-template-columns: 110px 1fr;
-            gap: 1.5rem;
-            padding: 1.75rem 0;
-            border-bottom: 1px dashed var(--border-soft);
+            gap: 1.75rem;
         }
 
-        .diary-entry:last-child { border-bottom: none; }
-
-        .diary-meta {
-            padding-top: 0.2rem;
-        }
+        .diary-meta { padding-top: 0.15rem; }
 
         .diary-date {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--bristol-red);
+            font-size: 0.82rem;
+            color: var(--text);
             font-weight: 500;
-            margin-bottom: 0.2rem;
+            font-variant-numeric: tabular-nums;
+            margin-bottom: 0.15rem;
         }
 
         .diary-loc {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--text-muted);
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
         }
 
         .diary-title {
             font-weight: 600;
             color: var(--text);
-            font-size: 1.02rem;
-            line-height: 1.45;
-            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.4;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.9rem;
         }
 
         .diary-body {
-            color: var(--text-soft);
-            font-size: 0.9rem;
-            line-height: 1.75;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.7;
         }
 
-        .diary-body p {
-            margin-bottom: 0.75rem;
-        }
-
+        .diary-body p { margin-bottom: 0.85rem; color: var(--text-secondary); }
         .diary-body p:last-child { margin-bottom: 0; }
 
-        .diary-body strong {
-            color: var(--text);
-            font-weight: 600;
-        }
+        .diary-body strong { color: var(--text); font-weight: 600; }
 
-        .diary-body em {
-            font-style: italic;
-            color: var(--text);
-        }
-
-        .diary-body .quote-red {
-            color: var(--bristol-red);
-            font-style: normal;
-        }
-
+        /* Photos — no border, no radius on the frame, just the image */
         .diary-image {
-            margin: 0.9rem 0;
-            border: 1px solid var(--border);
-            border-radius: 4px;
+            margin: 1.25rem 0;
+            border-radius: 12px;
             overflow: hidden;
-            background: var(--bg-alt);
+            background: #f5f5f7;
         }
 
-        .diary-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+        .diary-image img { width: 100%; height: auto; display: block; }
 
         .photo-caption {
             font-size: 0.78rem;
-            color: var(--text-muted);
-            padding-top: 0.5rem;
-            border-top: 1px dashed var(--border-soft);
-            margin-top: 0.75rem;
+            color: var(--text-tertiary);
+            padding-top: 0.75rem;
+            line-height: 1.6;
         }
 
-        /* Inline link card */
+        /* Link card — clean, white, hairline border */
         .link-card {
             display: block;
-            margin-top: 0.9rem;
-            padding: 0.75rem 0.9rem;
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--bristol-red);
-            background: var(--bg-alt);
+            margin-top: 1.25rem;
+            padding: 1rem 1.15rem;
+            border: 1px solid var(--hairline);
+            border-radius: 12px;
+            background: var(--bg);
             text-decoration: none;
             color: var(--text);
-            transition: background 0.15s, border-color 0.15s;
+            transition: background 0.15s ease, border-color 0.15s ease;
         }
 
         .link-card:hover {
-            background: #f0eadd;
+            background: #f5f5f7;
         }
 
         .link-card .lc-title {
             font-weight: 600;
-            font-size: 0.88rem;
-            margin-bottom: 0.2rem;
-            color: var(--text);
+            font-size: 0.9rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
         }
 
         .link-card .lc-desc {
-            font-size: 0.78rem;
-            color: var(--text-soft);
-            margin-bottom: 0.25rem;
-            line-height: 1.5;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 0.35rem;
         }
 
         .link-card .lc-url {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.72rem;
-            color: var(--bristol-red);
+            font-size: 0.75rem;
+            color: var(--accent);
         }
 
         footer {
-            margin-top: 4rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-align: center;
+            margin-top: 6rem;
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
         }
 
+        /* Mobile */
         @media (max-width: 640px) {
-            .container { padding: 2rem 1.25rem 3rem; }
-            .header { gap: 1rem; padding-bottom: 1.25rem; margin-bottom: 1.5rem; }
-            .avatar { width: 60px; height: 60px; }
-
-            .header-body {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .header-text h1 { font-size: 1.2rem; }
-            .header-text h1 .cn { font-size: 0.98rem; margin-left: 0.4rem; }
-
-            .header-contacts {
-                align-items: center;
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 0.45rem;
-                padding-top: 0;
-            }
-
-            .header-contacts a,
-            .header-contacts .loc {
-                width: 32px;
-                height: 32px;
-            }
+            .container { padding: 3rem 1.5rem 4rem; }
+            .header { margin-bottom: 3rem; }
+            .avatar { width: 68px; height: 68px; margin: 0 auto 1.25rem; }
+            .name-en { font-size: 1.55rem; }
+            .name-cn { font-size: 0.98rem; }
+            .role { font-size: 0.92rem; }
 
             nav.main-nav {
-                margin-bottom: 1.5rem;
+                margin-bottom: 3rem;
                 position: relative;
                 justify-content: flex-end;
+                padding: 0;
             }
-
-            .nav-toggle { display: flex; align-items: center; justify-content: center; }
 
             .nav-links {
                 display: none;
@@ -411,73 +343,86 @@
                 flex-direction: column;
                 gap: 0;
                 background: var(--bg);
-                border: 1px solid var(--border);
-                border-radius: 4px;
-                padding: 0.5rem 0;
+                border: 1px solid var(--hairline);
+                border-radius: 14px;
+                padding: 0.4rem 0;
                 min-width: 180px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+                box-shadow: 0 10px 32px rgba(0,0,0,0.08);
                 z-index: 50;
             }
 
             .nav-links.open { display: flex; }
+            .nav-links a { padding: 0.6rem 1.1rem; font-size: 0.92rem; border-bottom: none; color: var(--text-secondary); }
+            .nav-links a:hover { color: var(--text); background: #f5f5f7; }
+            .nav-links a.active { color: var(--text); background: #f5f5f7; border-bottom: none; }
 
-            .nav-links a {
-                padding: 0.6rem 1rem;
-                border-bottom: 1px solid var(--border-soft) !important;
-                border-radius: 0;
-            }
+            .nav-toggle { display: flex; align-items: center; justify-content: center; }
 
-            .nav-links a:last-child { border-bottom: none !important; }
-
-            .nav-links a.active {
-                background: var(--bg-alt);
-                border-bottom-color: var(--border-soft) !important;
-            }
+            section { margin-bottom: 3rem; }
+            h2 { font-size: 1rem; }
+            .subtitle { margin-bottom: 2rem; }
 
             .diary-entry {
                 grid-template-columns: 1fr;
                 gap: 0.5rem;
-                padding: 1.25rem 0;
             }
+
             .diary-meta {
                 display: flex;
                 gap: 0.75rem;
-                align-items: center;
+                align-items: baseline;
                 padding-top: 0;
             }
+
             .diary-date { margin-bottom: 0; }
-            .diary-title { font-size: 0.98rem; }
-            body { font-size: 14.5px; }
+
+            .diary-list { gap: 3rem; }
+
+            footer { margin-top: 4rem; }
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #000000;
+                --text: #f5f5f7;
+                --text-secondary: #a1a1a6;
+                --text-tertiary: #6e6e73;
+                --hairline: #424245;
+            }
+            .avatar { background: #1c1c1e; }
+            .nav-links { background: #1c1c1e; box-shadow: 0 10px 32px rgba(0,0,0,0.5); }
+            .diary-image { background: #1c1c1e; }
+            .link-card { border-color: #424245; }
+            .link-card:hover { background: #1c1c1e; }
+            ::selection { background: #f5f5f7; color: #000; }
         }
     </style>
 </head>
 <body>
-    <div class="accent-bar"></div>
     <div class="container">
 
         <header class="header">
             <div class="avatar">
                 <img src="resources/photos/weilinhe.jpg" alt="Weilin He" onerror="this.style.display='none'">
             </div>
-            <div class="header-body">
-                <div class="header-text">
-                    <h1>Weilin He<span class="cn">何委霖</span></h1>
-                    <p class="role">Ph.D. Student &middot; <span class="accent">University of Bristol</span></p>
-                </div>
-                <div class="header-contacts">
-                    <a href="mailto:te23071@bristol.ac.uk" aria-label="Email" title="te23071@bristol.ac.uk">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    </a>
-                    <a href="https://github.com/WeilinHe00619" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.67 5.56.67 11.83c0 5.02 3.25 9.27 7.75 10.77.57.1.78-.24.78-.55 0-.27-.01-.99-.02-1.94-3.15.68-3.82-1.52-3.82-1.52-.51-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.23 3.31.94.1-.73.4-1.23.72-1.51-2.51-.29-5.16-1.26-5.16-5.58 0-1.23.44-2.24 1.16-3.03-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.16.9-.25 1.87-.38 2.83-.38.96 0 1.93.13 2.83.38 2.16-1.46 3.11-1.16 3.11-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.03 0 4.33-2.66 5.29-5.18 5.57.41.35.77 1.05.77 2.11 0 1.52-.01 2.75-.01 3.13 0 .31.2.66.79.55 4.5-1.5 7.74-5.75 7.74-10.77C23.33 5.56 18.27.5 12 .5z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/in/weilin-he-570145388" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-                    </a>
-                    <span class="loc" aria-label="Location: Bristol, UK" title="Bristol, UK">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    </span>
-                </div>
+            <h1 class="name-en">Weilin He</h1>
+            <div class="name-cn">何委霖</div>
+            <p class="role">Ph.D. Student, <span class="role-accent">University of Bristol</span></p>
+
+            <div class="contacts">
+                <a href="mailto:te23071@bristol.ac.uk" aria-label="Email" title="te23071@bristol.ac.uk">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+                <a href="https://github.com/WeilinHe00619" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.67 5.56.67 11.83c0 5.02 3.25 9.27 7.75 10.77.57.1.78-.24.78-.55 0-.27-.01-.99-.02-1.94-3.15.68-3.82-1.52-3.82-1.52-.51-1.31-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.66 1.23 3.31.94.1-.73.4-1.23.72-1.51-2.51-.29-5.16-1.26-5.16-5.58 0-1.23.44-2.24 1.16-3.03-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.16.9-.25 1.87-.38 2.83-.38.96 0 1.93.13 2.83.38 2.16-1.46 3.11-1.16 3.11-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.03 0 4.33-2.66 5.29-5.18 5.57.41.35.77 1.05.77 2.11 0 1.52-.01 2.75-.01 3.13 0 .31.2.66.79.55 4.5-1.5 7.74-5.75 7.74-10.77C23.33 5.56 18.27.5 12 .5z"/></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/weilin-he-570145388" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.11 20.45H3.56V9h3.55v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                </a>
+                <span class="loc" aria-label="Location: Bristol, UK" title="Bristol, UK">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
             </div>
         </header>
 
@@ -493,187 +438,159 @@
             </button>
         </nav>
 
-        <h2>Research Diary</h2>
-        <p class="subtitle">A possibly wordy and very informal record of thoughts, insights, and scenery along the academic journey.</p>
+        <section>
+            <h2>Research Diary</h2>
+            <p class="subtitle">A possibly wordy and very informal record of thoughts, insights, and scenery along the academic journey.</p>
 
-        <!-- Aug 2026 -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Aug 2026</div>
-                <div class="diary-loc">Oxford, UK</div>
+            <div class="year-filter" id="yearFilter">
+                <button type="button" data-year="all" class="active">All</button>
+                <button type="button" data-year="2026">2026</button>
+                <button type="button" data-year="2025">2025</button>
             </div>
-            <div>
-                <div class="diary-title">Anglo-German Summer School at University of Oxford</div>
-                <div class="diary-body">
-                    <p>
-                        It is a great honor to attend the <a class="inline-link" href="https://www.studienstiftung.de/en/summer-schools/" target="_blank" rel="noopener">Anglo-German Summer School</a> at the University of Oxford. The program is generously funded by the <a class="inline-link" href="https://www.studienstiftung.de/en" target="_blank" rel="noopener">German Academic Scholarship Foundation</a>. Exploring the boundaries of AI and creativity with scholars from diverse backgrounds in such an academic atmosphere is incredibly exciting!
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <!-- May 2026 -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">May 2026</div>
-                <div class="diary-loc">Bertinoro, Italy</div>
-            </div>
-            <div>
-                <div class="diary-title">PLISS 2026 Summer School</div>
-                <div class="diary-body">
-                    <p>
-                        Attending the 8th <a class="inline-link" href="https://pliss.org/2026/" target="_blank" rel="noopener">PLISS</a> (Programming Language Implementation Summer School) in Bertinoro, Italy. The underlying implementation of programming languages and state space exploration are areas of deep interest to me. Looking forward to learning cutting-edge PL techniques and meeting like-minded researchers.
-                    </p>
-                </div>
-            </div>
-        </div>
+            <div class="diary-list">
 
-        <!-- Apr 2026 -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Apr 2026</div>
-                <div class="diary-loc">Bristol, UK</div>
-            </div>
-            <div>
-                <div class="diary-title">Hosting the Wise Software Engineering Lab from Tianjin University</div>
-                <div class="diary-image">
-                    <img src="resources/photos/tju visit.JPG" alt="Wise Software Engineering Lab visit to Bristol">
+                <div class="diary-entry" data-year="2026">
+                    <div class="diary-meta">
+                        <div class="diary-date">Aug </div>
+                        <div class="diary-loc">Oxford, UK</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">Anglo-German Summer School at University of Oxford</div>
+                        <div class="diary-body">
+                            <p>It is a great honor to attend the <a class="inline-link" href="https://www.studienstiftung.de/en/summer-schools/" target="_blank" rel="noopener">Anglo-German Summer School</a> at the University of Oxford. The program is generously funded by the <a class="inline-link" href="https://www.studienstiftung.de/en" target="_blank" rel="noopener">German Academic Scholarship Foundation</a>. Exploring the boundaries of AI and creativity with scholars from diverse backgrounds in such an academic atmosphere is incredibly exciting!</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="diary-body">
-                    <p>
-                        The Wise Software Engineering Lab from Tianjin University, led by <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>, visited the University of Bristol, and I had the pleasure of taking part in their visit.
-                    </p>
-                    <p>
-                        During the visit, I had the privilege of listening to a talk by <a class="inline-link" href="https://yingquanzhao.github.io" target="_blank" rel="noopener">Prof. Yingquan Zhao</a>, an Associate Professor at the College of Intelligence and Computing, Tianjin University, on his recent work in JVM testing. We had a wonderful discussion exploring the transferability of his methods to my current research direction on code generation, from which I benefited greatly.
-                    </p>
-                    <p>
-                        Beyond the academic sessions, we took a trip together to one of Bristol's most iconic landmarks — the <a class="inline-link" href="https://cliftonbridge.org.uk/" target="_blank" rel="noopener">Clifton Suspension Bridge</a>. The weather was absolutely lovely, and walking across Brunel's masterpiece together made for a memorable afternoon. Beyond the research exchanges, we also chatted about everyday life — everyone was humorous and easy-going, which made the whole experience genuinely enjoyable. Truly a delightful time!
-                    </p>
-                    <p class="photo-caption">
-                        <strong>In the photo, from left to right:</strong>
-                        <a class="inline-link" href="https://xiaopeng.li" target="_blank" rel="noopener">Xiaopeng Li</a>,
-                        <a class="inline-link" href="https://weilinhe00619.github.io/weilinhe/index.html" target="_blank" rel="noopener">Weilin He</a>,
-                        <a class="inline-link" href="https://research-information.bris.ac.uk/en/persons/liqiang-shang/" target="_blank" rel="noopener">Liqiang Shang</a>,
-                        <a class="inline-link" href="https://mengwangoxf.github.io" target="_blank" rel="noopener">Meng Wang</a>,
-                        <a class="inline-link" href="https://tjusail.github.io/people/chenjunjie/index.html" target="_blank" rel="noopener">Junjie Chen</a>,
-                        <a class="inline-link" href="https://zhang-xiyue.github.io" target="_blank" rel="noopener">Xiyue Zhang</a>,
-                        <a class="inline-link" href="https://dong-w.github.io" target="_blank" rel="noopener">Dong Wang</a>,
-                        <a class="inline-link" href="https://yingquanzhao.github.io/Home.html" target="_blank" rel="noopener">Yingquan Zhao</a>.
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Mar 2026 -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Mar 2026</div>
-                <div class="diary-loc">Bristol, UK</div>
-            </div>
-            <div>
-                <div class="diary-title">Finished EPSRC Project RA</div>
-                <div class="diary-body">
-                    <p>
-                        Today officially marks the completion of my Research Assistant role in the EPSRC-funded project: <a class="inline-link" href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener">Exploring Barriers to AI Doctoral Studies</a>. I have experienced the challenges and charm of interdisciplinary research. Collaborating with people from various countries and gaining my first in-depth understanding of the UK's AI PhD education system gave me quite a bit of culture shock. A huge thank you to everyone in our project team for their hard work and dedication!
-                    </p>
+                <div class="diary-entry" data-year="2026">
+                    <div class="diary-meta">
+                        <div class="diary-date">May </div>
+                        <div class="diary-loc">Bertinoro, Italy</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">PLISS 2026 Summer School</div>
+                        <div class="diary-body">
+                            <p>Attending the 8th <a class="inline-link" href="https://pliss.org/2026/" target="_blank" rel="noopener">PLISS</a> (Programming Language Implementation Summer School) in Bertinoro, Italy. The underlying implementation of programming languages and state space exploration are areas of deep interest to me. Looking forward to learning cutting-edge PL techniques and meeting like-minded researchers.</p>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener" class="link-card">
-                    <div class="lc-title">Exploring Barriers to AI Doctoral Studies</div>
-                    <div class="lc-desc">EPSRC-funded project investigating the ethical and practical barriers in AI PhD education across the UK.</div>
-                    <div class="lc-url">uob-aibarriers-project.github.io</div>
-                </a>
-            </div>
-        </div>
 
-        <!-- Feb 2026 -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Feb 2026</div>
-                <div class="diary-loc">Tianjin, China</div>
-            </div>
-            <div>
-                <div class="diary-title">Visiting the Wise Software Engineering Lab from Tianjin University</div>
-                <div class="diary-body">
-                    <p>
-                        It felt incredibly magical that my first visiting exchange as a PhD student was returning to my alma mater, Tianjin University, to visit <a class="inline-link" href="https://tjusail.github.io" target="_blank" rel="noopener">The Wise Software Engineering Lab</a> from Tianjin University. I even arrived a few hours early that day to study at the Zhengdong Library, a place I frequented during my undergraduate years.
-                    </p>
-                    <p>
-                        Surprisingly, the new campus has added many new shops and stores — truly proving the joke that "the school always renovates right after you graduate." Besides that, the students in <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>'s group are all very impressive and welcoming. I hope we can have more exchanges in the future!
-                    </p>
+                <div class="diary-entry" data-year="2026">
+                    <div class="diary-meta">
+                        <div class="diary-date">Apr </div>
+                        <div class="diary-loc">Bristol, UK</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">Hosting the Wise Software Engineering Lab from Tianjin University</div>
+                        <div class="diary-image">
+                            <img src="resources/photos/tju visit.JPG" alt="Wise Software Engineering Lab visit to Bristol">
+                        </div>
+                        <div class="diary-body">
+                            <p>The Wise Software Engineering Lab from Tianjin University, led by <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>, visited the University of Bristol, and I had the pleasure of taking part in their visit.</p>
+                            <p>During the visit, I had the privilege of listening to a talk by <a class="inline-link" href="https://yingquanzhao.github.io" target="_blank" rel="noopener">Prof. Yingquan Zhao</a>, an Associate Professor at the College of Intelligence and Computing, Tianjin University, on his recent work in JVM testing. We had a wonderful discussion exploring the transferability of his methods to my current research direction on code generation, from which I benefited greatly.</p>
+                            <p>Beyond the academic sessions, we took a trip together to one of Bristol's most iconic landmarks — the <a class="inline-link" href="https://cliftonbridge.org.uk/" target="_blank" rel="noopener">Clifton Suspension Bridge</a>. The weather was absolutely lovely, and walking across Brunel's masterpiece together made for a memorable afternoon. Beyond the research exchanges, we also chatted about everyday life — everyone was humorous and easy-going, which made the whole experience genuinely enjoyable. Truly a delightful time!</p>
+                            <p class="photo-caption">
+                                <strong>In the photo, from left to right:</strong>
+                                <a class="inline-link" href="https://xiaopeng.li" target="_blank" rel="noopener">Xiaopeng Li</a>,
+                                <a class="inline-link" href="https://weilinhe00619.github.io/weilinhe/index.html" target="_blank" rel="noopener">Weilin He</a>,
+                                <a class="inline-link" href="https://research-information.bris.ac.uk/en/persons/liqiang-shang/" target="_blank" rel="noopener">Liqiang Shang</a>,
+                                <a class="inline-link" href="https://mengwangoxf.github.io" target="_blank" rel="noopener">Meng Wang</a>,
+                                <a class="inline-link" href="https://tjusail.github.io/people/chenjunjie/index.html" target="_blank" rel="noopener">Junjie Chen</a>,
+                                <a class="inline-link" href="https://zhang-xiyue.github.io" target="_blank" rel="noopener">Xiyue Zhang</a>,
+                                <a class="inline-link" href="https://dong-w.github.io" target="_blank" rel="noopener">Dong Wang</a>,
+                                <a class="inline-link" href="https://yingquanzhao.github.io/Home.html" target="_blank" rel="noopener">Yingquan Zhao</a>.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Jan 2026 -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Jan 2026</div>
-                <div class="diary-loc">Bristol, UK</div>
-            </div>
-            <div>
-                <div class="diary-title">First Paper Submission to ICML</div>
-                <div class="diary-body">
-                    <p>
-                        What a chaotic, high-pressure, and non-stop week! I just submitted my very first paper to ICML. This being the first project of my PhD journey, I have learned an incredible amount. I am deeply grateful to my supervisor <a class="inline-link" href="https://cristina-david.github.io/" target="_blank" rel="noopener">Cristina David</a> and my collaborator <a class="inline-link" href="https://srg.doc.ic.ac.uk/people/arindam-sharma/" target="_blank" rel="noopener">Arindam Sharma</a> for their invaluable guidance. I feel incredibly lucky to have the opportunity to work with them. I absolutely love this research direction of code generation; I can see its massive potential, and knowing our work is truly meaningful keeps me highly motivated!
-                    </p>
+                <div class="diary-entry" data-year="2026">
+                    <div class="diary-meta">
+                        <div class="diary-date">Mar </div>
+                        <div class="diary-loc">Bristol, UK</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">Finished EPSRC Project RA</div>
+                        <div class="diary-body">
+                            <p>Today officially marks the completion of my Research Assistant role in the EPSRC-funded project: <a class="inline-link" href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener">Exploring Barriers to AI Doctoral Studies</a>. I have experienced the challenges and charm of interdisciplinary research. Collaborating with people from various countries and gaining my first in-depth understanding of the UK's AI PhD education system gave me quite a bit of culture shock. A huge thank you to everyone in our project team for their hard work and dedication!</p>
+                        </div>
+                        <a href="https://uob-aibarriers-project.github.io/epsrc-barriers-to-ai/index.html" target="_blank" rel="noopener" class="link-card">
+                            <div class="lc-title">Exploring Barriers to AI Doctoral Studies</div>
+                            <div class="lc-desc">EPSRC-funded project investigating the ethical and practical barriers in AI PhD education across the UK.</div>
+                            <div class="lc-url">uob-aibarriers-project.github.io</div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Sep 2025 (PLRG) -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Sep 2025</div>
-                <div class="diary-loc">Bristol, UK</div>
-            </div>
-            <div>
-                <div class="diary-title">Joined PLRG lab</div>
-                <div class="diary-image">
-                    <img src="resources/photos/plrg.jpg" alt="PLRG lab family">
+                <div class="diary-entry" data-year="2026">
+                    <div class="diary-meta">
+                        <div class="diary-date">Feb </div>
+                        <div class="diary-loc">Tianjin, China</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">Visiting the Wise Software Engineering Lab from Tianjin University</div>
+                        <div class="diary-body">
+                            <p>It felt incredibly magical that my first visiting exchange as a PhD student was returning to my alma mater, Tianjin University, to visit <a class="inline-link" href="https://tjusail.github.io" target="_blank" rel="noopener">The Wise Software Engineering Lab</a> from Tianjin University. I even arrived a few hours early that day to study at the Zhengdong Library, a place I frequented during my undergraduate years.</p>
+                            <p>Surprisingly, the new campus has added many new shops and stores — truly proving the joke that "the school always renovates right after you graduate." Besides that, the students in <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>'s group are all very impressive and welcoming. I hope we can have more exchanges in the future!</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="diary-body">
-                    <p>
-                        A new beginning! Today I officially joined the <a class="inline-link" href="https://plrg-bristol.github.io/" target="_blank" rel="noopener">PLRG</a> (Programming Languages Research Group) lab family, starting my PhD journey. Transitioning into the deep waters of computer science, I feel excited facing unknown challenges. Keep coding, keep researching!
-                    </p>
-                    <p>
-                        The picture is from our group's Christmas party — my very first official Christmas party in the UK, and it was a lot of fun. I can truly feel how wonderful and friendly everyone in our group is, especially my two supervisors. There are even two (perhaps more) members currently learning Chinese, which is quite cute. Worth mentioning is a big thanks to our well-funded lab for treating me to such a great meal! I was a bit too shy to take photos of the food that day, but it was absolutely delicious!!!
-                    </p>
-                    <p><strong>I love doing a PhD. I am absolutely certain of this right now.</strong></p>
-                </div>
-            </div>
-        </div>
 
-        <!-- Sep 2025 (Graduation) -->
-        <div class="diary-entry">
-            <div class="diary-meta">
-                <div class="diary-date">Sep 2025</div>
-                <div class="diary-loc">Tianjin &amp; Bristol</div>
-            </div>
-            <div>
-                <div class="diary-title">Graduated from Tianjin University &amp; University of Bristol</div>
-                <div class="diary-image">
-                    <img src="resources/photos/2025.jpg" alt="2025 Memories">
+                <div class="diary-entry" data-year="2026">
+                    <div class="diary-meta">
+                        <div class="diary-date">Jan </div>
+                        <div class="diary-loc">Bristol, UK</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">First Paper Submission to ICML</div>
+                        <div class="diary-body">
+                            <p>What a chaotic, high-pressure, and non-stop week! I just submitted my very first paper to ICML. This being the first project of my PhD journey, I have learned an incredible amount. I am deeply grateful to my supervisor <a class="inline-link" href="https://cristina-david.github.io/" target="_blank" rel="noopener">Cristina David</a> and my collaborator <a class="inline-link" href="https://srg.doc.ic.ac.uk/people/arindam-sharma/" target="_blank" rel="noopener">Arindam Sharma</a> for their invaluable guidance. I feel incredibly lucky to have the opportunity to work with them. I absolutely love this research direction of code generation; I can see its massive potential, and knowing our work is truly meaningful keeps me highly motivated!</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="diary-body">
-                    <p>
-                        Participating in the <a class="inline-link" href="https://www.bristol.ac.uk/international/global-transfer-programme/partners/tju/#pg" target="_blank" rel="noopener">3+1 AMD Programmes</a> made 2025 a chaotic yet extraordinarily fulfilling year. Thanks to this program, I completed all my undergraduate credits within the first three years, and successfully managed my master's studies alongside writing both my bachelor's and master's dissertations in the fourth year. It was a period of immense academic pressure, but the relentless learning pushed me to my limits and enriched me deeply.
-                    </p>
-                    <p>
-                        While this year seemed perfect on the surface, it was actually intertwined with confusion, doubts, and anxieties. Nevertheless, amidst the heavy workload, I managed to step out and explore a much bigger world: sitting by a lake near a wooden cabin in Finland, swimming in the jelly-like crystal waters of Hurghada, standing atop snowy mountains in Norway, and walking in the drizzle of Grindelwald, Switzerland... In these breathtaking places, I felt like I was living in a beautiful dream.
-                    </p>
-                    <p>
-                        I am deeply grateful for my parents' continuous support. Now that everything is steadily falling into place, my heart is full of gratitude. My only regret this year is missing both my undergraduate and master's graduation ceremonies. Here is to making a wish: I hope to successfully earn my PhD and finally attend the graduation ceremony I've been longing for!
-                    </p>
-                    <p>
-                        <strong>I still remember during my PhD interview, someone had written on the blackboard by the door: <span class="quote-red">"Don't do AI! It'S, BAD!!! You will regret I"</span>. I wonder how I will answer this statement four years from now.</strong>
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <footer>
-            &copy; 2026 Weilin He &middot; University of Bristol
-        </footer>
+                <div class="diary-entry" data-year="2025">
+                    <div class="diary-meta">
+                        <div class="diary-date">Sep </div>
+                        <div class="diary-loc">Bristol, UK</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">Joined PLRG lab</div>
+                        <div class="diary-image">
+                            <img src="resources/photos/plrg.jpg" alt="PLRG lab family">
+                        </div>
+                        <div class="diary-body">
+                            <p>A new beginning! Today I officially joined the <a class="inline-link" href="https://plrg-bristol.github.io/" target="_blank" rel="noopener">PLRG</a> (Programming Languages Research Group) lab family, starting my PhD journey. Transitioning into the deep waters of computer science, I feel excited facing unknown challenges. Keep coding, keep researching!</p>
+                            <p>The picture is from our group's Christmas party — my very first official Christmas party in the UK, and it was a lot of fun. I can truly feel how wonderful and friendly everyone in our group is, especially my two supervisors. There are even two (perhaps more) members currently learning Chinese, which is quite cute. Worth mentioning is a big thanks to our well-funded lab for treating me to such a great meal! I was a bit too shy to take photos of the food that day, but it was absolutely delicious!!!</p>
+                            <p><strong>I love doing a PhD. I am absolutely certain of this right now.</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diary-entry" data-year="2025">
+                    <div class="diary-meta">
+                        <div class="diary-date">Sep </div>
+                        <div class="diary-loc">Tianjin &amp; Bristol</div>
+                    </div>
+                    <div>
+                        <div class="diary-title">Graduated from Tianjin University &amp; University of Bristol</div>
+                        <div class="diary-image">
+                            <img src="resources/photos/2025.jpg" alt="2025 Memories">
+                        </div>
+                        <div class="diary-body">
+                            <p>Participating in the <a class="inline-link" href="https://www.bristol.ac.uk/international/global-transfer-programme/partners/tju/#pg" target="_blank" rel="noopener">3+1 AMD Programmes</a> made 2025 a chaotic yet extraordinarily fulfilling year. Thanks to this program, I completed all my undergraduate credits within the first three years, and successfully managed my master's studies alongside writing both my bachelor's and master's dissertations in the fourth year. It was a period of immense academic pressure, but the relentless learning pushed me to my limits and enriched me deeply.</p>
+                            <p>While this year seemed perfect on the surface, it was actually intertwined with confusion, doubts, and anxieties. Nevertheless, amidst the heavy workload, I managed to step out and explore a much bigger world: sitting by a lake near a wooden cabin in Finland, swimming in the jelly-like crystal waters of Hurghada, standing atop snowy mountains in Norway, and walking in the drizzle of Grindelwald, Switzerland... In these breathtaking places, I felt like I was living in a beautiful dream.</p>
+                            <p>I am deeply grateful for my parents' continuous support. Now that everything is steadily falling into place, my heart is full of gratitude. My only regret this year is missing both my undergraduate and master's graduation ceremonies. Here is to making a wish: I hope to successfully earn my PhD and finally attend the graduation ceremony I've been longing for!</p>
+                            <p>I still remember during my PhD interview, someone had written on the blackboard by the door: "Don't do AI! It'S, BAD!!! You will regret I". I wonder how I will answer this statement four years from now.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>&copy; 2026 Weilin He</footer>
 
     </div>
 
@@ -694,6 +611,31 @@
                     toggle.classList.remove('open');
                     toggle.setAttribute('aria-expanded', 'false');
                 }
+            });
+        })();
+
+        // Year filter
+        (function() {
+            var filter = document.getElementById('yearFilter');
+            if (!filter) return;
+            var buttons = filter.querySelectorAll('button');
+            var entries = document.querySelectorAll('.diary-entry');
+
+            filter.addEventListener('click', function(e) {
+                var btn = e.target.closest('button');
+                if (!btn) return;
+                var year = btn.getAttribute('data-year');
+
+                buttons.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                entries.forEach(function(entry) {
+                    if (year === 'all' || entry.getAttribute('data-year') === year) {
+                        entry.classList.remove('hidden');
+                    } else {
+                        entry.classList.add('hidden');
+                    }
+                });
             });
         })();
     </script>
