@@ -506,6 +506,18 @@
 
             .diary-list { gap: 2.25rem; }
 
+            .diary-title {
+                display: inline-block;
+                font-size: 0.88rem;
+                font-weight: 600;
+                letter-spacing: 0;
+                line-height: 1.3;
+                color: var(--bg);
+                background: var(--text);
+                padding: 0.28rem 0.65rem;
+                margin-bottom: 0.9rem;
+            }
+
             .year-filter {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -602,62 +614,63 @@
 
                 <div class="diary-entry" data-year="2026">
                     <div class="diary-meta">
-                        <div class="diary-date">Aug </div>
+                        <div class="diary-date">Aug 2026</div>
                         <div class="diary-loc">Oxford, UK</div>
                     </div>
                     <div>
                         <div class="diary-title">Anglo-German Summer School at University of Oxford</div>
                         <div class="diary-body">
-                            <p>It is a great honor to attend the <a class="inline-link" href="https://www.studienstiftung.de/en/summer-schools/" target="_blank" rel="noopener">Anglo-German Summer School</a> at the University of Oxford. The program is generously funded by the <a class="inline-link" href="https://www.studienstiftung.de/en" target="_blank" rel="noopener">German Academic Scholarship Foundation</a>. Exploring the boundaries of AI and creativity with scholars from diverse backgrounds in such an academic atmosphere is incredibly exciting!</p>
+                            <p>It is a great honor to attend the <a class="inline-link" href="https://www.studienstiftung.de/en/summer-schools/" target="_blank" rel="noopener">Anglo-German Summer School</a> at the University of Oxford. The program is generously funded by the <a class="inline-link" href="https://www.studienstiftung.de/en" target="_blank" rel="noopener">German Academic Scholarship Foundation</a> — the scholarship fully covers accommodation and meals for the entire week. Exploring the boundaries of AI and creativity with scholars from diverse backgrounds in such an academic atmosphere is incredibly exciting!</p>
+                            <p>As a wonderful coincidence, Oxford is also where my supervisor <a class="inline-link" href="https://mengwangoxf.github.io/" target="_blank" rel="noopener">Meng Wang</a> completed his studies — so I am looking forward to taking this chance to wander around the campus he once knew.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="diary-entry" data-year="2026">
                     <div class="diary-meta">
-                        <div class="diary-date">May </div>
-                        <div class="diary-loc">Bertinoro, Italy</div>
+                        <div class="diary-date">May 2026</div>
+                        <div class="diary-loc">Bertinoro, Italy · One Week</div>
                     </div>
                     <div>
                         <div class="diary-title">PLISS 2026 Summer School</div>
                         <div class="diary-body">
-                            <p>Attending the 8th <a class="inline-link" href="https://pliss.org/2026/" target="_blank" rel="noopener">PLISS</a> (Programming Language Implementation Summer School) in Bertinoro, Italy. The underlying implementation of programming languages and state space exploration are areas of deep interest to me. Looking forward to learning cutting-edge PL techniques and meeting like-minded researchers.</p>
+                            <p>Attending the 8th <a class="inline-link" href="https://pliss.org/2026/" target="_blank" rel="noopener">PLISS</a> (Programming Language Implementation Summer School) in Bertinoro, Italy for one week. The underlying implementation of programming languages and state space exploration are areas of deep interest to me. Looking forward to learning cutting-edge PL techniques and meeting like-minded researchers.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="diary-entry" data-year="2026">
                     <div class="diary-meta">
-                        <div class="diary-date">Apr </div>
+                        <div class="diary-date">Apr 2026</div>
                         <div class="diary-loc">Bristol, UK</div>
                     </div>
                     <div>
                         <div class="diary-title">Hosting the Wise Software Engineering Lab from Tianjin University</div>
+                        <div class="diary-body">
+                            <p>The <a class="inline-link" href="https://tjusail.github.io" target="_blank" rel="noopener">Wise Software Engineering Lab</a> from Tianjin University, led by <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>, visited the University of Bristol, and I had the pleasure of taking part in their visit.</p>
+                            <p>During the visit, I had the privilege of listening to a talk by <a class="inline-link" href="https://yingquanzhao.github.io" target="_blank" rel="noopener">Prof. Yingquan Zhao</a>, an Associate Professor at the College of Intelligence and Computing, Tianjin University, on his recent work in JVM testing. We had a wonderful discussion exploring the transferability of his methods to my current research direction on code generation, from which I benefited greatly.</p>
+                            <p>Beyond the academic sessions, we took a trip together to one of Bristol's most iconic landmarks — the <a class="inline-link" href="https://cliftonbridge.org.uk/" target="_blank" rel="noopener">Clifton Suspension Bridge</a>. The weather was absolutely lovely, and walking across Brunel's masterpiece together made for a memorable afternoon. Beyond the research exchanges, we also chatted about everyday life — everyone was humorous and easy-going, which made the whole experience genuinely enjoyable. Truly a delightful time!</p>
+                        </div>
                         <div class="diary-image">
                             <img src="resources/photos/tju visit.JPG" alt="Wise Software Engineering Lab visit to Bristol">
                         </div>
-                        <div class="diary-body">
-                            <p>The Wise Software Engineering Lab from Tianjin University, led by <a class="inline-link" href="https://sites.google.com/site/junjiechen08/" target="_blank" rel="noopener">Prof. Junjie Chen</a>, visited the University of Bristol, and I had the pleasure of taking part in their visit.</p>
-                            <p>During the visit, I had the privilege of listening to a talk by <a class="inline-link" href="https://yingquanzhao.github.io" target="_blank" rel="noopener">Prof. Yingquan Zhao</a>, an Associate Professor at the College of Intelligence and Computing, Tianjin University, on his recent work in JVM testing. We had a wonderful discussion exploring the transferability of his methods to my current research direction on code generation, from which I benefited greatly.</p>
-                            <p>Beyond the academic sessions, we took a trip together to one of Bristol's most iconic landmarks — the <a class="inline-link" href="https://cliftonbridge.org.uk/" target="_blank" rel="noopener">Clifton Suspension Bridge</a>. The weather was absolutely lovely, and walking across Brunel's masterpiece together made for a memorable afternoon. Beyond the research exchanges, we also chatted about everyday life — everyone was humorous and easy-going, which made the whole experience genuinely enjoyable. Truly a delightful time!</p>
-                            <p class="photo-caption">
-                                <strong>In the photo, from left to right:</strong>
-                                <a class="inline-link" href="https://xiaopeng.li" target="_blank" rel="noopener">Xiaopeng Li</a>,
-                                <a class="inline-link" href="https://weilinhe00619.github.io/weilinhe/index.html" target="_blank" rel="noopener">Weilin He</a>,
-                                <a class="inline-link" href="https://research-information.bris.ac.uk/en/persons/liqiang-shang/" target="_blank" rel="noopener">Liqiang Shang</a>,
-                                <a class="inline-link" href="https://mengwangoxf.github.io" target="_blank" rel="noopener">Meng Wang</a>,
-                                <a class="inline-link" href="https://tjusail.github.io/people/chenjunjie/index.html" target="_blank" rel="noopener">Junjie Chen</a>,
-                                <a class="inline-link" href="https://zhang-xiyue.github.io" target="_blank" rel="noopener">Xiyue Zhang</a>,
-                                <a class="inline-link" href="https://dong-w.github.io" target="_blank" rel="noopener">Dong Wang</a>,
-                                <a class="inline-link" href="https://yingquanzhao.github.io/Home.html" target="_blank" rel="noopener">Yingquan Zhao</a>.
-                            </p>
-                        </div>
+                        <p class="photo-caption">
+                            <strong>In the photo, from left to right:</strong>
+                            <a class="inline-link" href="https://xiaopeng.li" target="_blank" rel="noopener">Xiaopeng Li</a>,
+                            <a class="inline-link" href="https://weilinhe00619.github.io/weilinhe/index.html" target="_blank" rel="noopener">Weilin He</a>,
+                            <a class="inline-link" href="https://research-information.bris.ac.uk/en/persons/liqiang-shang/" target="_blank" rel="noopener">Liqiang Shang</a>,
+                            <a class="inline-link" href="https://mengwangoxf.github.io" target="_blank" rel="noopener">Meng Wang</a>,
+                            <a class="inline-link" href="https://tjusail.github.io/people/chenjunjie/index.html" target="_blank" rel="noopener">Junjie Chen</a>,
+                            <a class="inline-link" href="https://zhang-xiyue.github.io" target="_blank" rel="noopener">Xiyue Zhang</a>,
+                            <a class="inline-link" href="https://dong-w.github.io" target="_blank" rel="noopener">Dong Wang</a>,
+                            <a class="inline-link" href="https://yingquanzhao.github.io/Home.html" target="_blank" rel="noopener">Yingquan Zhao</a>.
+                        </p>
                     </div>
                 </div>
 
                 <div class="diary-entry" data-year="2026">
                     <div class="diary-meta">
-                        <div class="diary-date">Mar </div>
+                        <div class="diary-date">Mar 2026</div>
                         <div class="diary-loc">Bristol, UK</div>
                     </div>
                     <div>
@@ -681,7 +694,7 @@
 
                 <div class="diary-entry" data-year="2026">
                     <div class="diary-meta">
-                        <div class="diary-date">Feb </div>
+                        <div class="diary-date">Feb 2026</div>
                         <div class="diary-loc">Tianjin, China</div>
                     </div>
                     <div>
@@ -695,7 +708,7 @@
 
                 <div class="diary-entry" data-year="2026">
                     <div class="diary-meta">
-                        <div class="diary-date">Jan </div>
+                        <div class="diary-date">Jan 2026</div>
                         <div class="diary-loc">Bristol, UK</div>
                     </div>
                     <div>
@@ -708,36 +721,36 @@
 
                 <div class="diary-entry" data-year="2025">
                     <div class="diary-meta">
-                        <div class="diary-date">Sep </div>
+                        <div class="diary-date">Sep 2025</div>
                         <div class="diary-loc">Bristol, UK</div>
                     </div>
                     <div>
                         <div class="diary-title">Joined PLRG lab</div>
-                        <div class="diary-image">
-                            <img src="resources/photos/plrg.jpg" alt="PLRG lab family">
-                        </div>
                         <div class="diary-body">
                             <p>A new beginning! Today I officially joined the <a class="inline-link" href="https://plrg-bristol.github.io/" target="_blank" rel="noopener">PLRG</a> (Programming Languages Research Group) lab family, starting my PhD journey. Transitioning into the deep waters of computer science, I feel excited facing unknown challenges. Keep coding, keep researching!</p>
                             <p>The picture is from our group's Christmas party — my very first official Christmas party in the UK, and it was a lot of fun. I can truly feel how wonderful and friendly everyone in our group is, especially my two supervisors. There are even two (perhaps more) members currently learning Chinese, which is quite cute. Worth mentioning is a big thanks to our well-funded lab for treating me to such a great meal! I was a bit too shy to take photos of the food that day, but it was absolutely delicious!!!</p>
                             <p><strong>I love doing a PhD. I am absolutely certain of this right now.</strong></p>
+                        </div>
+                        <div class="diary-image">
+                            <img src="resources/photos/plrg.jpg" alt="PLRG lab family">
                         </div>
                     </div>
                 </div>
 
                 <div class="diary-entry" data-year="2025">
                     <div class="diary-meta">
-                        <div class="diary-date">Sep </div>
+                        <div class="diary-date">Sep 2025</div>
                         <div class="diary-loc">Tianjin &amp; Bristol</div>
                     </div>
                     <div>
                         <div class="diary-title">Graduated from Tianjin University &amp; University of Bristol</div>
-                        <div class="diary-image">
-                            <img src="resources/photos/2025.jpg" alt="2025 Memories">
-                        </div>
                         <div class="diary-body">
                             <p>Participating in the <a class="inline-link" href="https://www.bristol.ac.uk/international/global-transfer-programme/partners/tju/#pg" target="_blank" rel="noopener">3+1 AMD Programmes</a> made 2025 a chaotic yet extraordinarily fulfilling year. Thanks to this program, I completed all my undergraduate credits within the first three years, and successfully managed my master's studies alongside writing both my bachelor's and master's dissertations in the fourth year. It was a period of immense academic pressure, but the relentless learning pushed me to my limits and enriched me deeply.</p>
                             <p>I am deeply grateful for my parents' continuous support. Now that everything is steadily falling into place, my heart is full of gratitude. My only regret this year is missing both my undergraduate and master's graduation ceremonies. Here is to making a wish: <strong>I hope to successfully earn my PhD and finally attend the graduation ceremony I've been longing for!</strong></p>
                             <p>I still remember during my PhD interview, someone had written on the blackboard by the door: "Don't do AI! It'S, BAD!!! You will regret I". I wonder how I will answer this statement four years from now.</p>
+                        </div>
+                        <div class="diary-image">
+                            <img src="resources/photos/2025.jpg" alt="2025 Memories">
                         </div>
                     </div>
                 </div>
